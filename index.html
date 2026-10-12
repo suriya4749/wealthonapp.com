@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WealthOn: every bank and loan in one place</title>
+<meta name="description" content="Money in many banks, loans and EMIs everywhere? WealthOn brings every account, loan and EMI into one place and shows what is free to spend. No sign-up, no bank login. Your data stays on your phone.">
+<meta property="og:title" content="WealthOn: every bank and loan in one place">
+<meta property="og:description" content="Every account, loan and EMI in one app. No sign-up, no bank login, your data stays on your phone.">
+<meta property="og:image" content="https://wealthonapp.com/img/og.jpg">
+<meta property="og:url" content="https://wealthonapp.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://wealthonapp.com/">
+<meta name="theme-color" content="#0C111D">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0C111D; --card:#161B26; --card-2:#1D2433; --line:#252B37;
+  --ink:#F5F5F6; --muted:#94969C;
+  --primary:#3B5BDB; --primary-2:#8098F9; --mint:#6CE9A6; --mint-2:#12B76A; --amber:#FEC84B;
+  --hero:linear-gradient(135deg,#2A47B8 0%,#1E3A8A 55%,#172B66 100%);
+}
+*{box-sizing:border-box}
+html{overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-weight:500;font-size:16.5px;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mint);outline-offset:3px;border-radius:10px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* background glow + grid */
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bgfx::before{content:"";position:absolute;inset:-20%;background:
+  radial-gradient(600px 420px at 78% 18%,rgba(59,91,219,.35),transparent 70%),
+  radial-gradient(520px 380px at 12% 70%,rgba(18,183,106,.12),transparent 70%)}
+.bgfx::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(900px 600px at 70% 20%,#000 20%,transparent 75%);mask-image:radial-gradient(900px 600px at 70% 20%,#000 20%,transparent 75%)}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(12,17,29,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+header .wrap{height:66px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:19px;letter-spacing:-.02em}
+.brand img{width:32px;height:32px;border-radius:9px}
+header nav{display:flex;align-items:center;gap:26px;font-weight:600;font-size:14.5px}
+header nav a{color:var(--muted);text-decoration:none;transition:color .2s}
+header nav a:hover{color:var(--ink)}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:var(--primary);color:#fff!important;font-weight:700}
+
+/* hero */
+.hero{min-height:calc(100vh - 66px);display:flex;align-items:center;padding:40px 0 60px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;width:100%}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 10px;border-radius:999px;background:rgba(108,233,166,.1);border:1px solid rgba(108,233,166,.3);color:var(--mint);font-weight:700;font-size:13.5px;margin-bottom:22px}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(108,233,166,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(108,233,166,0)}100%{box-shadow:0 0 0 0 rgba(108,233,166,0)}}
+h1{font-size:clamp(40px,5.6vw,70px);line-height:1.04;letter-spacing:-.04em;font-weight:800;margin:0 0 20px}
+h1 .line{display:block;overflow:hidden;padding-bottom:.04em}
+h1 .line span{display:inline-block}
+.grad{background:linear-gradient(90deg,#fff 0%,#C7D2FE 45%,#6CE9A6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:18px;max-width:31em;margin:0 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:30px}
+.play{display:inline-flex;align-items:center;gap:12px;padding:12px 20px 12px 16px;border-radius:14px;background:#fff;color:#0C111D;text-decoration:none;font-weight:800;line-height:1.15;transition:transform .2s}
+.play:hover{transform:translateY(-2px)}
+.play small{display:block;font-weight:600;font-size:12px;color:#475467}
+.play svg{width:24px;height:24px}
+.btn2{display:inline-flex;align-items:center;gap:8px;padding:13px 18px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);text-decoration:none;font-weight:700;transition:border-color .2s,background .2s}
+.btn2:hover{border-color:#3a4256;background:rgba(255,255,255,.06)}
+.promises{display:flex;flex-wrap:wrap;gap:10px}
+.promises span{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:14px;font-weight:700;color:#D0D5DD}
+.promises span::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--mint-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%230C111D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+
+/* phone */
+.stage{position:relative;height:640px;overflow-x:clip;display:flex;justify-content:center;align-items:center}
+.phone{--pw:290px;container-type:inline-size;position:relative;width:var(--pw);aspect-ratio:290/556;border-radius:calc(var(--pw)*0.135);padding:calc(var(--pw)*0.026);
+  background:linear-gradient(145deg,#4A4F5C 0%,#23262E 22%,#15171C 50%,#2B2F38 80%,#5A5F6B 100%);
+  box-shadow:0 50px 100px rgba(0,0,0,.6),inset 0 0 0 calc(var(--pw)*0.005) #0A0B0E,inset 0 0 0 calc(var(--pw)*0.008) rgba(255,255,255,.07)}
+/* side buttons: power and volume on the right, like most Android phones */
+.phone::before,.phone::after{content:"";position:absolute;right:calc(var(--pw)*-0.011);width:calc(var(--pw)*0.014);border-radius:0 calc(var(--pw)*0.01) calc(var(--pw)*0.01) 0;background:linear-gradient(90deg,#1B1D23,#4A4F5C)}
+.phone::before{top:21%;height:9%}
+.phone::after{top:33%;height:17%}
+.phone .screen{position:relative;width:100%;height:100%;border-radius:11cqw;overflow:hidden;background:#0C111D;display:flex;flex-direction:column;box-shadow:0 0 0 .6cqw #000}
+.phone .sb{flex:none;height:8.6cqw;display:flex;align-items:center;justify-content:space-between;padding:1.2cqw 6.5cqw 0;font-size:3.9cqw;font-weight:700;color:#F5F5F6;letter-spacing:.01em;position:relative;font-variant-numeric:tabular-nums}
+.phone .sb .cam{position:absolute;left:50%;top:2.4cqw;width:4.6cqw;height:4.6cqw;margin-left:-2.3cqw;border-radius:50%;background:radial-gradient(circle at 35% 35%,#2a3550 0 18%,#05070C 30%);box-shadow:0 0 0 .5cqw #000}
+.phone .sb .icons{display:flex;align-items:center;gap:1.4cqw}
+.phone .sb svg{height:3.6cqw;width:auto;fill:#F5F5F6}
+.phone .view{position:relative;flex:1;overflow:hidden}
+.phone .view img{position:absolute;top:0;left:0;width:100%;height:auto;opacity:0;transform:scale(1.03);transition:opacity .7s ease,transform 1.2s ease}
+.phone .view img.on{opacity:1;transform:none}
+.phone .nav{flex:none;height:6.4cqw;display:grid;place-items:center;background:#0C111D}
+.phone .nav i{width:30%;height:1.3cqw;border-radius:1cqw;background:#D0D5DD}
+.float{animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.ring{position:absolute;width:520px;height:520px;border-radius:50%;border:1px dashed rgba(128,152,249,.22);animation:spin 60s linear infinite}
+.ring.r2{width:400px;height:400px;border-style:solid;border-color:rgba(108,233,166,.12);animation-duration:40s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;background:rgba(22,27,38,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);box-shadow:0 18px 40px rgba(0,0,0,.4);font-size:13px;font-weight:700;white-space:nowrap}
+.chip b{display:block;font-size:16px;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.chip small{display:block;color:var(--muted);font-weight:600;font-size:12px}
+.chip .ic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;flex:none}
+.chip .ic svg{width:17px;height:17px}
+.c1{left:-6px;top:120px;animation:bob 5s ease-in-out infinite}
+.c2{right:-14px;top:300px;animation:bob 6s ease-in-out .8s infinite}
+.c3{left:-10px;bottom:40px;animation:bob 5.5s ease-in-out 1.6s infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+
+/* section headings */
+section{padding:72px 0}
+.sh{font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-.035em;font-weight:800;margin:0 0 14px}
+.ss{color:var(--muted);font-size:17.5px;max-width:34em;margin:0 0 40px}
+
+/* features: tabs + phone */
+.feat{display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:center}
+.tabs{display:grid;gap:10px}
+.tab{position:relative;text-align:left;width:100%;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:18px;padding:18px 20px 18px 66px;font:inherit;overflow:hidden;transition:border-color .25s,background .25s}
+.tab:hover{border-color:#343c4f}
+.tab .ti{position:absolute;left:18px;top:16px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--card-2);transition:background .25s}
+.tab .ti svg{width:18px;height:18px;stroke:var(--primary-2)}
+.tab h3{margin:0;font-size:17.5px;letter-spacing:-.01em;line-height:1.3;padding-top:4px}
+.tab p{margin:0;color:var(--muted);font-size:15px;max-height:0;opacity:0;overflow:hidden;transition:max-height .45s ease,opacity .35s ease,margin .35s}
+.tab.on{background:linear-gradient(180deg,#1A2140,#161B26);border-color:rgba(128,152,249,.45)}
+.tab.on .ti{background:var(--primary)}
+.tab.on .ti svg{stroke:#fff}
+.tab.on p{max-height:120px;opacity:1;margin-top:6px}
+.tab .bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:linear-gradient(90deg,var(--primary-2),var(--mint))}
+.tab.on .bar{animation:fill var(--dur,6s) linear forwards}
+@keyframes fill{to{width:100%}}
+.feat .phone{--pw:320px;margin:0 auto}
+
+/* privacy */
+.priv{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.glass{border-radius:24px;padding:30px;background:var(--hero);border:1px solid rgba(255,255,255,.14);position:relative;overflow:hidden}
+.glass::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,.12)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.stat b{display:block;font-size:40px;line-height:1;letter-spacing:-.03em;font-weight:800;font-variant-numeric:tabular-nums}
+.stat span{display:block;color:#E0E7FF;font-size:13.5px;font-weight:600;margin-top:8px}
+.glass h3{margin:0;font-size:24px;letter-spacing:-.02em;line-height:1.2}
+.glass p{margin:10px 0 0;color:#E0E7FF}
+.faq details{border:1px solid var(--line);background:var(--card);border-radius:16px;margin-bottom:10px;transition:border-color .2s}
+.faq details[open]{border-color:#343c4f}
+.faq summary{cursor:pointer;list-style:none;padding:16px 46px 16px 18px;font-weight:700;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:8px;background:var(--card-2);display:grid;place-items:center;font-weight:700;color:var(--primary-2);transition:transform .25s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{margin:0;padding:0 18px 16px;color:var(--muted)}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:1fr 1.1fr;gap:20px}
+.plan{border-radius:24px;padding:30px;background:var(--card);border:1px solid var(--line)}
+.plan h3{margin:0;font-size:22px;letter-spacing:-.02em}
+.plan .pp{margin:4px 0 20px;color:var(--muted);font-weight:600;font-size:14.5px}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.plan li{position:relative;padding-left:28px;color:#D0D5DD}
+.plan li::before{content:"";position:absolute;left:0;top:.28em;width:18px;height:18px;border-radius:6px;background:var(--card-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%238098F9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.plan.pro{position:relative;background:linear-gradient(160deg,#3A2A0A,#1F1A10 60%);border-color:rgba(254,200,75,.4)}
+.plan.pro .pp{color:var(--amber)}
+.plan.pro li::before{background-color:rgba(254,200,75,.14);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23FEC84B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.plan.pro .star{position:absolute;right:22px;top:22px;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#FEC84B,#F79009);display:grid;place-items:center;box-shadow:0 10px 30px rgba(247,144,9,.35)}
+.plan.pro .star svg{width:20px;height:20px}
+.plan.pro .note{margin:22px 0 0;padding-top:18px;border-top:1px solid rgba(254,200,75,.2);color:#FEDF89;font-size:14.5px}
+
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:st}
+.step{position:relative;border-radius:20px;padding:24px 22px 22px;background:var(--card);border:1px solid var(--line)}
+.step .n{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:15px;background:rgba(59,91,219,.18);color:var(--primary-2);border:1px solid rgba(128,152,249,.35);margin-bottom:14px}
+.step h3{margin:0 0 6px;font-size:18px;letter-spacing:-.01em;line-height:1.3}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.step .time{display:inline-block;margin-top:12px;font-size:13px;font-weight:700;color:var(--mint)}
+.steps .step:not(:last-child)::after{content:"";position:absolute;right:-13px;top:40px;width:10px;height:10px;border-top:2px solid #3a4256;border-right:2px solid #3a4256;transform:rotate(45deg)}
+/* never list */
+.never{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.never li{display:flex;gap:14px;align-items:flex-start;padding:15px 18px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.never li::before{content:"";flex:none;width:24px;height:24px;margin-top:1px;border-radius:8px;background:rgba(240,68,56,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 5l6 6M11 5l-6 6' fill='none' stroke='%23F97066' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.never b{display:block;font-size:16px}
+.never li>span{color:var(--ink)}
+.never span span{display:block;color:var(--muted);font-size:14.5px}
+/* faq */
+.faqgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;align-items:start}
+.faq h3{margin:0 0 12px;font-size:14px;font-weight:700;color:var(--primary-2)}
+.faq + .faq h3{margin-top:0}
+.ask{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;padding:20px 22px;border-radius:18px;border:1px dashed #3a4256}
+.ask p{margin:0;color:var(--muted)}
+.ask p b{color:var(--ink)}
+.ask a{color:var(--primary-2);font-weight:800;text-decoration:none}
+
+/* final cta + footer */
+.final{border-radius:28px;padding:44px;background:var(--hero);border:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
+.final h2{margin:0;font-size:clamp(26px,3vw,36px);letter-spacing:-.03em;line-height:1.1;max-width:16ch;position:relative}
+.final .play{position:relative}
+.final::before{content:"";position:absolute;left:-80px;bottom:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(108,233,166,.25),transparent 70%)}
+footer{padding:36px 0 50px;color:var(--muted);font-size:14.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+footer nav{display:flex;flex-wrap:wrap;gap:22px;font-weight:700}
+footer nav a{text-decoration:none;color:#D0D5DD}
+footer nav a:hover{color:#fff}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+/* hero entrance */
+.hi h1 .line span{transform:translateY(105%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hi h1 .line:nth-child(2) span{animation-delay:.1s}
+.hi h1 .line:nth-child(3) span{animation-delay:.2s}
+.hi .fade{opacity:0;animation:fade .8s ease forwards}
+.hi .f1{animation-delay:.35s}.hi .f2{animation-delay:.5s}.hi .f3{animation-delay:.65s}.hi .f4{animation-delay:.1s}
+.stage .phone{opacity:0;animation:rise 1.1s .25s cubic-bezier(.2,.8,.2,1) forwards}
+.stage .chip{opacity:0;transition:opacity .6s}
+.stage.go .chip{opacity:1}
+.stage.go .c2{transition-delay:.25s}.stage.go .c3{transition-delay:.5s}
+@keyframes up{to{transform:none}}
+@keyframes fade{to{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(60px) scale(.96)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.hi .fade,.stage .phone,.stage .chip{opacity:1;transform:none}
+  .hi h1 .line span{transform:none}
+}
+@media (max-width:960px){
+  header nav a:not(.pill){display:none}
+  .hero{min-height:auto;padding:36px 0 30px}
+  .hero .wrap{grid-template-columns:1fr}
+  .stage{height:600px}
+  .feat{grid-template-columns:1fr;gap:34px}
+  .feat .phone{--pw:270px}
+  .priv,.plans,.faqgrid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .steps .step:not(:last-child)::after{right:auto;left:38px;top:auto;bottom:-13px;transform:rotate(135deg)}
+  .faq + .faq{margin-top:18px}
+  section{padding:64px 0}
+}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .phone{--pw:250px}
+  .stage{height:500px}
+  .ring{width:340px;height:340px}.ring.r2{width:270px;height:270px}
+  .c1{left:0;top:auto;bottom:150px}.c2{right:0;top:120px}.c3{display:none}
+  .chip{padding:7px 10px;gap:8px;font-size:11px}.chip b{font-size:13.5px}.chip small{font-size:11px}.chip .ic{width:26px;height:26px}
+  .feat .phone{--pw:220px}
+  .final{padding:30px}
+  section{padding:48px 0}
+  .stat b{font-size:32px}
+}
+</style>
+</head>
+<body>
+<div class="bgfx" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/icon.svg" alt="">WealthOn</a>
+    <nav aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">Questions</a>
+      <a class="pill" href="#get">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero hi">
+  <div class="wrap">
+    <div>
+      <div class="tag fade f4"><i></i>Android app · coming soon to Google Play</div>
+      <h1><span class="line"><span>Every bank.</span></span><span class="line"><span>Every loan.</span></span><span class="line"><span class="grad">One place.</span></span></h1>
+      <p class="lead fade f1">Salary in one bank, a credit card in another, EMIs going out of a third. Keeping track gets confusing fast. WealthOn brings every account, loan and EMI into one app and tells you what is really free to spend.</p>
+      <div class="cta fade f2" id="get">
+        <a class="play" href="#get" aria-disabled="true" title="WealthOn is coming to Google Play soon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z" fill="#3B5BDB"/></svg>
+          <span><small>Coming soon on</small>Google Play</span>
+        </a>
+        <a class="btn2" href="#how">See how it works</a>
+      </div>
+      <div class="promises fade f3"><span>Works with any bank</span><span>No bank login</span><span>Data stays on your phone</span><span>No sign-up</span></div>
+    </div>
+
+    <div class="stage" id="stage" aria-hidden="true">
+      <div class="ring"></div><div class="ring r2"></div>
+      <div class="float"><div class="phone"><div class="screen"><div class="sb"><span class="clock">9:41</span><span class="cam"></span><span class="icons"><svg viewBox="0 0 18 14"><path d="M1 13h2.5V9H1zM5.5 13H8V6.5H5.5zM10 13h2.5V4H10zM14.5 13H17V1h-2.5z"/></svg><svg viewBox="0 0 18 14"><path d="M9 13.5 0 3.6C2.4 1.5 5.6.3 9 .3s6.6 1.2 9 3.3z"/></svg><svg viewBox="0 0 24 14"><rect x=".8" y="1" width="19.5" height="12" rx="3" fill="none" stroke="#F5F5F6" stroke-width="1.4"/><rect x="3" y="3.2" width="13" height="7.6" rx="1.4"/><rect x="21.3" y="5" width="2" height="4" rx="1"/></svg></span></div><div class="view" id="heroScreen">
+        <img class="on" src="img/home.webp" alt="">
+        <img src="img/bills.webp" alt="">
+        <img src="img/loans.webp" alt="">
+        <img src="img/coach.webp" alt="">
+      </div><div class="nav"><i></i></div></div></div></div>
+      <div class="chip c1"><span class="ic" style="background:rgba(18,183,106,.16)"><svg viewBox="0 0 24 24" fill="none" stroke="#6CE9A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v10H3z"/><circle cx="12" cy="12" r="2.5"/></svg></span><span><small>Free to spend</small><b id="freeNum">$1,240</b></span></div>
+      <div class="chip c2"><span class="ic" style="background:rgba(235,104,52,.16)"><svg viewBox="0 0 24 24" fill="none" stroke="#F79009" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><span><small>Loan-free</small><b>Jan 2029</b></span></div>
+      <div class="chip c3"><span class="ic" style="background:rgba(59,91,219,.2)"><svg viewBox="0 0 24 24" fill="none" stroke="#8098F9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg></span><span><small>All in one place</small><b>3 banks · 5 loans</b></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2 class="sh rv">Set up in five minutes.</h2>
+    <p class="ss rv d1">No account to make and nothing to connect. Open the app and answer a few questions.</p>
+    <div class="steps">
+      <div class="step rv d1"><span class="n">1</span><h3>Tell it about your month</h3><p>Your currency, your take-home pay and the day your month starts: the 1st or your payday.</p><span class="time">About 1 minute</span></div>
+      <div class="step rv d2"><span class="n">2</span><h3>Add what you must pay</h3><p>Rent, loan payments, insurance, subscriptions. Or import last month’s bank statement and let WealthOn find them.</p><span class="time">2 to 4 minutes</span></div>
+      <div class="step rv d3"><span class="n">3</span><h3>Check one number each day</h3><p>Home shows what is free to spend until the month ends. Add spending in two taps, or import again next month.</p><span class="time">A few seconds a day</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2 class="sh rv">What it does for you.</h2>
+    <p class="ss rv d1">Stop opening four bank apps to know where you stand. Import a statement from each bank, and WealthOn puts it together with your loans, EMIs and bills.</p>
+    <div class="feat">
+      <div class="tabs rv d2" role="tablist" aria-label="Features">
+        <button class="tab on" role="tab" aria-selected="true" data-img="img/import.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><h3>Bring in every bank, without typing</h3><p>Open the CSV or Excel statement from each of your banks. Every line is read on your phone, sorted into your categories and checked by you before it is saved.</p><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/bills.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><h3>Every due date in one calendar</h3><p>Rent, loan payments, insurance and subscriptions on one calendar, with a reminder the evening before.</p><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/loans.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><h3>All your loans and EMIs together</h3><p>Every loan in one list: what is left, how much is interest, which one to clear first, and the month you will be debt-free.</p><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/coach.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><h3>Ask before you buy</h3><p>"Can I afford this?" The coach does the sums from your monthly totals. It never sees your bank lines or shop names.</p><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/lend.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15M15 4l4 4-4 4M20 16H5M9 12l-4 4 4 4"/></svg></span><h3>Remember who owes you</h3><p>Money lent or borrowed, with the date you agreed and a polite reminder on WhatsApp or SMS in one tap.</p><span class="bar"></span></button>
+      </div>
+      <div class="rv d3"><div class="phone"><div class="screen"><div class="sb"><span class="clock">9:41</span><span class="cam"></span><span class="icons"><svg viewBox="0 0 18 14"><path d="M1 13h2.5V9H1zM5.5 13H8V6.5H5.5zM10 13h2.5V4H10zM14.5 13H17V1h-2.5z"/></svg><svg viewBox="0 0 18 14"><path d="M9 13.5 0 3.6C2.4 1.5 5.6.3 9 .3s6.6 1.2 9 3.3z"/></svg><svg viewBox="0 0 24 14"><rect x=".8" y="1" width="19.5" height="12" rx="3" fill="none" stroke="#F5F5F6" stroke-width="1.4"/><rect x="3" y="3.2" width="13" height="7.6" rx="1.4"/><rect x="21.3" y="5" width="2" height="4" rx="1"/></svg></span></div><div class="view" id="featScreen"><img class="on" src="img/import.webp" alt="WealthOn screen for the selected feature"></div><div class="nav"><i></i></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <h2 class="sh rv">Your money stays on your phone.</h2>
+    <p class="ss rv d1">Your entries live in a database on your phone. We, the developer, never see them and keep no copy. Only you decide where a backup goes.</p>
+    <div class="priv">
+      <div class="glass rv d1">
+        <h3>Private by design</h3>
+        <p>Pro pays for WealthOn, so there are no ads, no tracking and nothing to sell.</p>
+        <div class="stats">
+          <div class="stat"><b data-count="0">0</b><span>accounts to create</span></div>
+          <div class="stat"><b data-count="0">0</b><span>bank logins asked</span></div>
+          <div class="stat"><b data-count="100" data-suffix="%">100%</b><span>of your data on your phone</span></div>
+        </div>
+      </div>
+      <ul class="never rv d2">
+        <li><span><b>Never asks for your bank password</b><span>It reads a statement file you download yourself. There is nothing to link.</span></span></li>
+        <li><span><b>Never moves your money</b><span>WealthOn can’t pay, transfer or touch any account. It only shows numbers.</span></span></li>
+        <li><span><b>Never makes you sign up</b><span>No email, no phone number, no account. Open it and start.</span></span></li>
+        <li><span><b>Never shows ads or sells data</b><span>There are no ads and no trackers. Pro is how WealthOn is paid for.</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2 class="sh rv">Free to use. Pro is one payment.</h2>
+    <p class="ss rv d1">Everything you need for the month is free. Pro saves you time every month, and you pay for it once.</p>
+    <div class="plans">
+      <div class="plan rv d1">
+        <h3>Free</h3>
+        <p class="pp">Free forever</p>
+        <ul>
+          <li>What is free to spend, every day</li>
+          <li>Budgets, bills calendar and repeat entries</li>
+          <li>Loans and your debt-free date</li>
+          <li>Money score, reminders, backup and app lock</li>
+          <li>Your first statement import</li>
+        </ul>
+      </div>
+      <div class="plan pro rv d2">
+        <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#3D1F00"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg></span>
+        <h3>WealthOn Pro</h3>
+        <p class="pp">One payment. No monthly fee, ever.</p>
+        <ul>
+          <li>Unlimited statement imports from any bank</li>
+          <li>Smart categories and the AI coach</li>
+          <li>Payoff planner, next month preview and subscriptions finder</li>
+          <li>Analytics for 3 months, 6 months and a year</li>
+          <li>Widget, CSV export and extra colours</li>
+        </ul>
+        <p class="note">Try Pro free for 7 days, starting with your first import. No card needed for the trial. When it ends you keep everything you added and carry on with Free. The price is shown in your currency on Google Play.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 class="sh rv">Questions people ask.</h2>
+    <p class="ss rv d1">Short answers to what most people want to know before they install.</p>
+    <div class="faqgrid">
+      <div class="faq rv d1">
+        <h3>Your data</h3>
+        <details open><summary>Is my money data safe?</summary><p>It stays in a database on your phone and never goes to our servers. You can add a fingerprint lock so nobody else can open the app.</p></details>
+        <details><summary>What if I lose or change my phone?</summary><p>Turn on automatic backup and WealthOn saves a copy to a folder you choose every day or week. You can also send a copy to Google Drive in one tap and restore it on your new phone.</p></details>
+        <details><summary>Does the AI see my transactions?</summary><p>No. Smart categories get only shop names you haven’t filed before. The coach gets monthly totals by your category names. Nothing is stored, and you can turn both off.</p></details>
+        <details><summary>Can I delete everything?</summary><p>Yes. Settings has “Erase all data”, and uninstalling the app removes it too. There is no copy anywhere else to ask us to delete.</p></details>
+        <details><summary>Does it work without internet?</summary><p>Yes. Everything works offline except smart categories and the coach, which need a connection.</p></details>
+      </div>
+      <div class="faq rv d2">
+        <h3>Using the app</h3>
+        <details><summary>Which banks does it work with?</summary><p>Any bank that lets you download a statement as Excel (XLS or XLSX) or CSV, which most do from their app or net banking. Import one from each bank and they all land in one place. PDF statements aren’t supported because they can’t be read reliably.</p></details>
+        <details><summary>Does it work in my country?</summary><p>Yes. It supports 21 currencies, and words follow where you live: “EMI” in India, “loan payment” elsewhere. Your month can start on the 1st or on your payday.</p></details>
+        <details><summary>Do I have to type every expense?</summary><p>No. Import your statement once a month, and set rent, salary and other fixed amounts to repeat by themselves. Typing a single expense takes two taps.</p></details>
+        <details><summary>What happens when the Pro trial ends?</summary><p>Nothing is lost. Pro features lock again and you carry on with Free. Buy Pro once if you want it back. There’s no subscription.</p></details>
+        <details><summary>Is there an iPhone app?</summary><p>Not yet. WealthOn is for Android first. Write to us if you want to hear when an iPhone version is ready.</p></details>
+      </div>
+    </div>
+    <div class="ask rv"><p><b>Still have a question?</b> Write to the developer directly.</p><a href="mailto:support@wealthonapp.com">support@wealthonapp.com</a></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="final rv">
+      <h2>All your money in one place.</h2>
+      <a class="play" href="#get" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z" fill="#3B5BDB"/></svg><span><small>Coming soon on</small>Google Play</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>WealthOn. Made in India, for people everywhere.</span>
+    <nav aria-label="Footer"><a href="mailto:support@wealthonapp.com">support@wealthonapp.com</a><a href="privacy.html">Privacy policy</a></nav>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // status bar clock shows the visitor's own time
+  const clock = () => { const d = new Date(); const t = d.getHours() + ':' + String(d.getMinutes()).padStart(2, '0'); document.querySelectorAll('.clock').forEach((c) => { c.textContent = t; }); };
+  clock(); setInterval(clock, 15000);
+
+  // hero: screens cross-fade inside the phone; chips appear once it has risen
+  const hero = [...document.querySelectorAll('#heroScreen img')];
+  let h = 0;
+  if (!still) setInterval(() => { hero[h].classList.remove('on'); h = (h + 1) % hero.length; hero[h].classList.add('on'); }, 3200);
+  setTimeout(() => document.getElementById('stage').classList.add('go'), still ? 0 : 1100);
+
+  // the free-to-spend chip counts up once
+  const free = document.getElementById('freeNum');
+  if (!still) {
+    const end = 1240, t0 = performance.now() + 1100;
+    free.textContent = '$0';
+    const tick = (t) => { const p = Math.min(1, Math.max(0, (t - t0) / 1200)); free.textContent = '$' + Math.round(end * (1 - Math.pow(1 - p, 3))).toLocaleString('en-US'); if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  }
+
+  // features: tabs auto-advance; a click picks one and carries on from there
+  const tabs = [...document.querySelectorAll('.tab')];
+  const screen = document.getElementById('featScreen');
+  const DUR = 6000; let cur = 0, timer;
+  tabs.forEach((t) => { const i = new Image(); i.src = t.dataset.img; t.style.setProperty('--dur', DUR + 'ms'); });
+  const show = (i) => {
+    tabs.forEach((t, k) => { t.classList.toggle('on', k === i); t.setAttribute('aria-selected', String(k === i)); });
+    const old = screen.querySelector('img.on');
+    if (!old || !old.src.endsWith(tabs[i].dataset.img)) {
+      const img = document.createElement('img'); img.src = tabs[i].dataset.img; img.alt = tabs[i].querySelector('h3').textContent;
+      screen.appendChild(img); requestAnimationFrame(() => requestAnimationFrame(() => img.classList.add('on')));
+      if (old) { old.classList.remove('on'); setTimeout(() => old.remove(), 800); }
+    }
+    cur = i; clearTimeout(timer); if (!still) timer = setTimeout(() => show((cur + 1) % tabs.length), DUR);
+  };
+  tabs.forEach((t, i) => t.addEventListener('click', () => { const bar = t.querySelector('.bar'); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; show(i); }));
+
+  // reveal on scroll; start the feature rotation and the counters when they come into view
+  let started = false;
+  const io = new IntersectionObserver((es) => es.forEach((e) => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in'); io.unobserve(e.target);
+    if (!started && e.target.classList.contains('tabs')) { started = true; show(0); }
+    e.target.querySelectorAll('[data-count]').forEach((el) => {
+      const end = +el.dataset.count, suf = el.dataset.suffix || '';
+      if (still || !end) { el.textContent = end + suf; return; }
+      const t0 = performance.now(); el.textContent = '0' + suf;
+      const tick = (t) => { const p = Math.min(1, (t - t0) / 1400); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + suf; if (p < 1) requestAnimationFrame(tick); };
+      requestAnimationFrame(tick);
+    });
+  }), { threshold: 0.18 });
+  document.querySelectorAll('.rv').forEach((el) => io.observe(el));
+})();
+</script>
+</body>
+</html>
