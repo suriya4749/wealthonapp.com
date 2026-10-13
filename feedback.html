@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WealthOn feedback</title>
+<meta name="description" content="Watch the 40-second WealthOn video and tell us what you think. Takes about 2 minutes.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Help shape WealthOn">
+<meta property="og:description" content="Watch a 40-second video and tell us what you think. Takes about 2 minutes.">
+<meta property="og:image" content="https://wealthonapp.com/img/og.jpg">
+<meta property="og:url" content="https://wealthonapp.com/feedback.html">
+<meta name="theme-color" content="#0C111D">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0C111D; --card:#161B26; --card-2:#1D2433; --line:#252B37; --line-2:#343C4F;
+  --ink:#F5F5F6; --body:#CECFD2; --muted:#94969C;
+  --primary:#3B5BDB; --primary-2:#8098F9; --mint:#6CE9A6; --mint-2:#12B76A; --red:#F97066;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);background-image:radial-gradient(700px 420px at 85% -5%,rgba(59,91,219,.28),transparent 70%),radial-gradient(520px 380px at 0% 100%,rgba(18,183,106,.08),transparent 70%);background-attachment:fixed;color:var(--ink);font-family:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-weight:500;font-size:16px;line-height:1.55}
+a{color:var(--primary-2)}
+:focus-visible{outline:3px solid var(--mint);outline-offset:2px;border-radius:8px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:rgba(12,17,29,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:5}
+header .wrap{height:62px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800;font-size:18px;letter-spacing:-.02em}
+.brand img{width:30px;height:30px;border-radius:8px}
+.brand b{color:var(--mint);font-weight:800}
+.site{font-weight:700;font-size:14px;text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--body)}
+.site:hover{border-color:var(--primary)}
+
+.intro{padding:36px 0 8px}
+.intro h1{margin:0 0 8px;font-size:clamp(30px,5vw,44px);line-height:1.08;letter-spacing:-.03em;font-weight:800;text-wrap:balance}
+.intro p{margin:0;color:var(--muted);max-width:40em}
+.intro p strong{color:var(--body)}
+
+.layout{display:grid;grid-template-columns:340px 1fr;gap:40px;align-items:start;padding:28px 0 60px}
+.watch{position:sticky;top:86px;display:grid;gap:14px}
+.step{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;color:var(--body)}
+.step i{font-style:normal;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;background:rgba(59,91,219,.18);color:var(--primary-2);border:1px solid rgba(128,152,249,.35)}
+.video{position:relative;width:100%;aspect-ratio:9/16;max-height:72vh;border-radius:22px;overflow:hidden;background:#05080F;border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.video video{width:100%;height:100%;object-fit:contain;display:block;background:#05080F}
+.visit{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-radius:16px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.visit:hover{border-color:var(--primary)}
+.visit small{display:block;color:var(--muted);font-size:13px;font-weight:600}
+.visit b{font-size:15px}
+.visit span.arrow{color:var(--primary-2);font-weight:800;font-size:20px}
+
+form{display:grid;gap:14px;min-width:0}
+.q{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:12px;min-width:0}
+.q.err{border-color:rgba(249,112,102,.7)}
+.q label.t,.q legend{font-weight:800;font-size:16px;letter-spacing:-.005em;padding:0;margin:0}
+.q .hint{color:var(--muted);font-size:13.5px;margin-top:-6px}
+.q .req{color:var(--mint);font-weight:700;font-size:12.5px;margin-left:6px}
+.q .msg{color:var(--red);font-size:13.5px;font-weight:700;display:none}
+.q.err .msg{display:block}
+fieldset{border:0;margin:0;min-width:0}
+fieldset.q{padding:20px}
+legend{float:left;width:100%}
+legend+*{clear:both}
+input[type=text],input[type=email],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line-2);border-radius:12px;padding:12px 14px}
+textarea{min-height:96px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#6B7080}
+input:focus,textarea:focus{outline:none;border-color:var(--primary-2);box-shadow:0 0 0 3px rgba(128,152,249,.2)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--bg);font-weight:700;font-size:14.5px;cursor:pointer;user-select:none;transition:border-color .15s,background .15s}
+.opt span:hover{border-color:#4a5368}
+.opt input:checked+span{border-color:var(--primary-2);background:rgba(59,91,219,.2);color:#fff}
+.opt input:focus-visible+span{outline:3px solid var(--mint);outline-offset:2px}
+.opts.col{flex-direction:column}
+.opts.col .opt span{width:100%}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.scale .opt span{width:100%;justify-content:center;font-size:18px;padding:12px 0}
+.ends{display:flex;justify-content:space-between;color:var(--muted);font-size:12.5px;font-weight:600}
+.submit{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding-top:4px}
+button.send{font:inherit;font-weight:800;font-size:16px;border:0;border-radius:14px;padding:14px 24px;background:var(--primary);color:#fff;cursor:pointer}
+button.send:hover{background:#4c6ae6}
+button.send:disabled{opacity:.6;cursor:default}
+.privacy{color:var(--muted);font-size:13px;max-width:34em}
+
+.thanks{display:none;background:var(--card);border:1px solid rgba(108,233,166,.35);border-radius:20px;padding:30px;gap:12px}
+.thanks.on{display:grid}
+.thanks .tick{width:52px;height:52px;border-radius:50%;background:var(--mint-2);display:grid;place-items:center}
+.thanks h2{margin:0;font-size:26px;letter-spacing:-.02em}
+.thanks p{margin:0;color:var(--body)}
+.thanks .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.thanks .row a,.thanks .row button{font:inherit;font-weight:800;font-size:14.5px;text-decoration:none;border-radius:12px;padding:11px 16px;border:1px solid var(--line-2);background:var(--bg);color:var(--ink);cursor:pointer}
+.thanks .row a.main{background:var(--primary);border-color:var(--primary)}
+.sendfail{display:none;color:var(--red);font-weight:700;font-size:14px}
+.sendfail.on{display:block}
+
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{padding:24px 20px 40px;display:flex;flex-wrap:wrap;gap:12px 20px;justify-content:space-between}
+footer a{color:var(--body);text-decoration:none;font-weight:700}
+
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr;gap:26px;padding-top:18px}
+  .watch{position:static}
+  .video{max-height:none;width:min(100%,360px);margin:0 auto}
+}
+@media (max-width:420px){
+  .wrap{padding:0 16px}
+  .q{padding:16px}
+  .scale .opt span{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="img/icon.svg" alt=""><span>Wealth<b>On</b></span></a>
+    <a class="site" href="index.html">Visit the website</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>Help shape WealthOn</h1>
+    <p>WealthOn is a money app we're building for Android. Watch the 40-second video, look around the website if you like, then answer a few questions. <strong>It takes about 2 minutes.</strong> There are no right answers; honest ones help most.</p>
+  </section>
+
+  <div class="layout">
+    <aside class="watch">
+      <div class="step"><i>1</i>Watch the video (40 s)</div>
+      <div class="video"><video id="ad" src="wealthon-ad.mp4" poster="img/ad-poster.jpg" controls playsinline preload="metadata"></video></div>
+      <a class="visit" href="index.html" target="_blank" rel="noopener"><span><small>Want to see more?</small><b>wealthonapp.com</b></span><span class="arrow" aria-hidden="true">→</span></a>
+    </aside>
+
+    <div>
+      <div class="step" style="margin-bottom:14px"><i>2</i>Tell us what you think</div>
+
+      <form id="fb" novalidate>
+        <div class="q" data-need="text" data-name="understood">
+          <label class="t" for="understood">In your own words, what does WealthOn do?<span class="req">Required</span></label>
+          <div class="hint">One sentence is enough. This tells us whether the video explains it well.</div>
+          <input type="text" id="understood" name="understood" maxlength="300" placeholder="e.g. It shows…">
+          <div class="msg">Please write a few words.</div>
+        </div>
+
+        <fieldset class="q" data-need="one" data-name="clarity">
+          <legend>How clear was the idea after the video?<span class="req">Required</span></legend>
+          <div class="scale">
+            <label class="opt"><input type="radio" name="clarity" value="1" id="cl1"><span>1</span></label>
+            <label class="opt"><input type="radio" name="clarity" value="2" id="cl2"><span>2</span></label>
+            <label class="opt"><input type="radio" name="clarity" value="3" id="cl3"><span>3</span></label>
+            <label class="opt"><input type="radio" name="clarity" value="4" id="cl4"><span>4</span></label>
+            <label class="opt"><input type="radio" name="clarity" value="5" id="cl5"><span>5</span></label>
+          </div>
+          <div class="ends"><span>Confusing</span><span>Very clear</span></div>
+          <div class="msg">Please pick a number.</div>
+        </fieldset>
+
+        <fieldset class="q" data-need="one" data-name="useful">
+          <legend>Would WealthOn be useful to you?<span class="req">Required</span></legend>
+          <div class="opts col">
+            <label class="opt"><input type="radio" name="useful" value="Not for me" id="us1"><span>Not for me</span></label>
+            <label class="opt"><input type="radio" name="useful" value="Maybe" id="us2"><span>Maybe</span></label>
+            <label class="opt"><input type="radio" name="useful" value="Yes, useful" id="us3"><span>Yes, useful</span></label>
+            <label class="opt"><input type="radio" name="useful" value="I'd install it on day one" id="us4"><span>I'd install it on day one</span></label>
+          </div>
+          <div class="msg">Please pick one.</div>
+        </fieldset>
+
+        <fieldset class="q" data-name="features">
+          <legend>Which parts would you actually use?</legend>
+          <div class="hint">Pick as many as you like.</div>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="features" value="Free to spend each day" id="f1"><span>Free to spend each day</span></label>
+            <label class="opt"><input type="checkbox" name="features" value="Import bank statements" id="f2"><span>Import bank statements</span></label>
+            <label class="opt"><input type="checkbox" name="features" value="Loans and EMIs, debt-free date" id="f3"><span>Loans and EMIs, debt-free date</span></label>
+            <label class="opt"><input type="checkbox" name="features" value="Bills calendar and reminders" id="f4"><span>Bills calendar and reminders</span></label>
+            <label class="opt"><input type="checkbox" name="features" value="Savings, goals and net worth" id="f5"><span>Savings, goals and net worth</span></label>
+            <label class="opt"><input type="checkbox" name="features" value="Money score and AI coach" id="f6"><span>Money score and AI coach</span></label>
+            <label class="opt"><input type="checkbox" name="features" value="Lend and borrow tracker" id="f7"><span>Lend and borrow tracker</span></label>
+            <label class="opt"><input type="checkbox" name="features" value="Data stays on my phone" id="f8"><span>Data stays on my phone</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q" data-name="today">
+          <legend>How do you keep track of your money today?</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="today" value="I don't really track it" id="td1"><span>I don't really track it</span></label>
+            <label class="opt"><input type="radio" name="today" value="Just my bank apps" id="td2"><span>Just my bank apps</span></label>
+            <label class="opt"><input type="radio" name="today" value="Notes or Excel" id="td3"><span>Notes or Excel</span></label>
+            <label class="opt"><input type="radio" name="today" value="Another money app" id="td4"><span>Another money app</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q" data-name="pay">
+          <legend>The app is free. Would you pay once for Pro (statement imports without limit, AI coach, payoff planner)?</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="pay" value="Yes" id="py1"><span>Yes</span></label>
+            <label class="opt"><input type="radio" name="pay" value="Maybe, depends on the price" id="py2"><span>Maybe, depends on the price</span></label>
+            <label class="opt"><input type="radio" name="pay" value="No, Free is enough" id="py3"><span>No, Free is enough</span></label>
+          </div>
+          <input type="text" id="price" name="price" maxlength="60" placeholder="A fair one-time price for you (optional), e.g. ₹299 or $5">
+        </fieldset>
+
+        <div class="q" data-name="missing">
+          <label class="t" for="missing">What was confusing, or what's missing?</label>
+          <textarea id="missing" name="missing" maxlength="2000" placeholder="Anything at all: the video, the website, a feature you'd want…"></textarea>
+        </div>
+
+        <div class="q" data-name="about">
+          <label class="t" for="country">About you <span style="color:var(--muted);font-weight:600;font-size:13.5px">(optional)</span></label>
+          <input type="text" id="country" name="country" maxlength="60" placeholder="Country">
+          <input type="email" id="email" name="email" maxlength="120" placeholder="Email, if you'd like early access to the app">
+        </div>
+
+        <input type="checkbox" name="botcheck" id="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+        <div class="submit">
+          <button class="send" type="submit" id="send">Send feedback</button>
+          <span class="privacy">We only use your answers to improve WealthOn. Your email, if you give it, is used only to tell you when the app is ready.</span>
+        </div>
+        <div class="sendfail" id="sendfail">Couldn't send just now. Check your connection and press Send feedback again.</div>
+      </form>
+
+      <section class="thanks" id="thanks" aria-live="polite">
+        <div class="tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0C111D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h2>Thank you!</h2>
+        <p>Your feedback was sent. It goes straight to the person building WealthOn.</p>
+        <div class="row">
+          <a class="main" href="index.html">See the website</a>
+          <button type="button" id="share">Copy link for a friend</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>WealthOn. Made in India, for people everywhere.</span>
+    <span><a href="index.html">wealthonapp.com</a> · <a href="privacy.html">Privacy</a> · support@wealthonapp.com</span>
+  </div>
+</footer>
+
+<script>
+/* Each answer is emailed to support@wealthonapp.com through Web3Forms (free, web3forms.com).
+   The access key only allows sending to that inbox, so it is safe to have in the page. */
+const WEB3FORMS_KEY = '6c92454e-d438-4a09-9121-5edb182a3067';
+
+(() => {
+  const form = document.getElementById('fb');
+  const send = document.getElementById('send');
+  const fail = document.getElementById('sendfail');
+  const thanks = document.getElementById('thanks');
+
+  // clear the red outline as soon as a question is answered
+  form.addEventListener('input', (e) => { const q = e.target.closest('.q'); if (q) q.classList.remove('err'); });
+
+  const value = (name) => { const el = form.elements[name]; if (!el) return ''; if (el instanceof RadioNodeList) return el.value || ''; return (el.value || '').trim(); };
+  const checked = (name) => [...form.querySelectorAll('input[name="' + name + '"]:checked')].map((i) => i.value);
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    fail.classList.remove('on');
+    let first = null;
+    form.querySelectorAll('.q[data-need]').forEach((q) => {
+      const n = q.dataset.name; const ok = q.dataset.need === 'text' ? value(n).length >= 2 : !!value(n);
+      q.classList.toggle('err', !ok); if (!ok && !first) first = q;
+    });
+    if (first) { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); const i = first.querySelector('input,textarea'); if (i) setTimeout(() => i.focus({ preventScroll: true }), 300); return; }
+
+    const scale = { '1': '1 (confusing)', '2': '2', '3': '3', '4': '4', '5': '5 (very clear)' };
+    const payload = {
+      access_key: WEB3FORMS_KEY,
+      subject: 'WealthOn feedback: ' + value('useful') + ', clarity ' + value('clarity') + '/5',
+      from_name: 'WealthOn feedback page',
+      'What WealthOn does (their words)': value('understood'),
+      'How clear (1-5)': scale[value('clarity')] || value('clarity'),
+      'Useful to them': value('useful'),
+      'Parts they would use': checked('features').join(', ') || '-',
+      'How they track money today': value('today') || '-',
+      'Would pay once for Pro': value('pay') || '-',
+      'Fair one-time price': value('price') || '-',
+      'Confusing or missing': value('missing') || '-',
+      'Country': value('country') || '-',
+      'Email for early access': value('email') || '-',
+      botcheck: form.elements.botcheck.checked
+    };
+    if (value('email').includes('@')) payload.replyto = value('email');
+
+    send.disabled = true; send.textContent = 'Sending…';
+    try {
+      if (!WEB3FORMS_KEY) throw new Error('not connected');
+      const r = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.success) throw new Error(j.message || 'send failed');
+      form.hidden = true; thanks.classList.add('on');
+      thanks.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (err) {
+      fail.classList.add('on');
+    } finally {
+      send.disabled = false; send.textContent = 'Send feedback';
+    }
+  });
+
+  document.getElementById('share').addEventListener('click', async (e) => {
+    const url = 'https://wealthonapp.com/feedback.html';
+    try { if (navigator.share) { await navigator.share({ title: 'Help shape WealthOn', url }); return; } await navigator.clipboard.writeText(url); e.target.textContent = 'Link copied'; }
+    catch { e.target.textContent = url; }
+  });
+})();
+</script>
+</body>
+</html>
