@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>WealthOn feedback</title>
-<meta name="description" content="Watch the 1-minute WealthOn video and tell us what you think. Takes about 2 minutes.">
+<meta name="description" content="Watch the 1-minute WealthOn video, look at the website and tell us what you think. Takes about 3 minutes.">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="Help shape WealthOn">
-<meta property="og:description" content="Watch a 1-minute video and tell us what you think. Takes about 2 minutes.">
+<meta property="og:description" content="Watch a 1-minute video, look at the website and tell us what you think. Takes about 3 minutes.">
 <meta property="og:image" content="https://wealthonapp.com/img/og.jpg">
 <meta property="og:url" content="https://wealthonapp.com/feedback.html">
 <meta name="theme-color" content="#0C111D">
@@ -52,6 +52,9 @@ header .wrap{height:62px;display:flex;align-items:center;justify-content:space-b
 .video video{width:100%;height:100%;object-fit:contain;display:block;background:#05080F}
 .visit{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-radius:16px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--ink)}
 .visit:hover{border-color:var(--primary)}
+.look{margin:0;padding:0 0 0 4px;list-style:none;display:grid;gap:8px;color:var(--muted);font-size:14px}
+.look li{position:relative;padding-left:22px}
+.look li::before{content:"";position:absolute;left:4px;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--primary-2)}
 .visit small{display:block;color:var(--muted);font-size:13px;font-weight:600}
 .visit b{font-size:15px}
 .visit span.arrow{color:var(--primary-2);font-weight:800;font-size:20px}
@@ -129,18 +132,24 @@ footer a{color:var(--body);text-decoration:none;font-weight:700}
 <main class="wrap">
   <section class="intro">
     <h1>Help shape WealthOn</h1>
-    <p>WealthOn is a money app we're building for Android. Watch the 1-minute video, look around the website if you like, then answer a few questions. <strong>It takes about 2 minutes.</strong> There are no right answers; honest ones help most.</p>
+    <p>WealthOn is a money app we're building for Android. Watch the 1-minute video, take a quick look at the website, then answer a few questions. <strong>It takes about 3 minutes.</strong> There are no right answers; honest ones help most.</p>
   </section>
 
   <div class="layout">
     <aside class="watch">
       <div class="step"><i>1</i>Watch the video (1 min)</div>
       <div class="video"><video id="ad" src="wealthon-explainer.mp4" poster="img/explainer-poster.jpg" controls playsinline preload="metadata"></video></div>
-      <a class="visit" href="index.html" target="_blank" rel="noopener"><span><small>Want to see more?</small><b>wealthonapp.com</b></span><span class="arrow" aria-hidden="true">→</span></a>
+      <div class="step" style="margin-top:8px"><i>2</i>Look around the website (1 min)</div>
+      <a class="visit" href="index.html" target="_blank" rel="noopener"><span><small>Opens in a new tab</small><b>wealthonapp.com</b></span><span class="arrow" aria-hidden="true">→</span></a>
+      <ul class="look">
+        <li>Is it clear what the app does from the first screen?</li>
+        <li>Do the features and screenshots make sense?</li>
+        <li>Would you trust it with your money details?</li>
+      </ul>
     </aside>
 
     <div>
-      <div class="step" style="margin-bottom:14px"><i>2</i>Tell us what you think</div>
+      <div class="step" style="margin-bottom:14px"><i>3</i>Tell us what you think</div>
 
       <form id="fb" novalidate>
         <div class="q" data-need="text" data-name="understood">
@@ -200,7 +209,7 @@ footer a{color:var(--body);text-decoration:none;font-weight:700}
         </fieldset>
 
         <fieldset class="q" data-name="pay">
-          <legend>The app is free. Would you pay once for Pro (statement imports without limit, AI coach, payoff planner)?</legend>
+          <legend>The app is free. Would you pay once for Pro (unlimited statement imports, AI coach, payoff planner, automatic backup)?</legend>
           <div class="opts">
             <label class="opt"><input type="radio" name="pay" value="Yes" id="py1"><span>Yes</span></label>
             <label class="opt"><input type="radio" name="pay" value="Maybe, depends on the price" id="py2"><span>Maybe, depends on the price</span></label>
@@ -211,6 +220,28 @@ footer a{color:var(--body);text-decoration:none;font-weight:700}
             <div class="opts" id="prices"></div>
             <input type="text" id="price_other" name="price_other" maxlength="40" placeholder="Other amount">
           </div>
+        </fieldset>
+
+        <fieldset class="q" data-name="site">
+          <legend>The website: how did it feel?</legend>
+          <div class="hint">Skip this if you didn't open it.</div>
+          <div class="scale">
+            <label class="opt"><input type="radio" name="site_rating" value="1" id="sr1"><span>1</span></label>
+            <label class="opt"><input type="radio" name="site_rating" value="2" id="sr2"><span>2</span></label>
+            <label class="opt"><input type="radio" name="site_rating" value="3" id="sr3"><span>3</span></label>
+            <label class="opt"><input type="radio" name="site_rating" value="4" id="sr4"><span>4</span></label>
+            <label class="opt"><input type="radio" name="site_rating" value="5" id="sr5"><span>5</span></label>
+          </div>
+          <div class="ends"><span>Didn't like it</span><span>Loved it</span></div>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="site_good" value="Clear about what the app does" id="sg1"><span>Clear about what the app does</span></label>
+            <label class="opt"><input type="checkbox" name="site_good" value="Looks trustworthy" id="sg2"><span>Looks trustworthy</span></label>
+            <label class="opt"><input type="checkbox" name="site_good" value="Good design" id="sg3"><span>Good design</span></label>
+            <label class="opt"><input type="checkbox" name="site_good" value="Answered my questions" id="sg4"><span>Answered my questions</span></label>
+            <label class="opt"><input type="checkbox" name="site_good" value="Too long or too much text" id="sg5"><span>Too long or too much text</span></label>
+            <label class="opt"><input type="checkbox" name="site_good" value="Hard to use on my phone" id="sg6"><span>Hard to use on my phone</span></label>
+          </div>
+          <input type="text" id="site_change" name="site_change" maxlength="300" placeholder="One thing you'd change on the website (optional)">
         </fieldset>
 
         <div class="q" data-name="missing">
@@ -310,6 +341,9 @@ const WEB3FORMS_KEY = '1e2a768c-7246-4b8d-9ff2-f555cf478a9e';
       'How they track money today': value('today') || '-',
       'Would pay once for Pro': value('pay') || '-',
       'Fair one-time price': value('price') || value('price_other') || '-',
+      'Website rating (1-5)': value('site_rating') || '-',
+      'Website: what they ticked': checked('site_good').join(', ') || '-',
+      'Website: one thing to change': value('site_change') || '-',
       'Confusing or missing': value('missing') || '-',
       'Country': value('country') || '-',
       'Email for early access': value('email') || '-',
