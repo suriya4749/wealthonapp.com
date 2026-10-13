@@ -25,6 +25,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);background-image:radial-gradient(700px 420px at 85% -5%,rgba(59,91,219,.28),transparent 70%),radial-gradient(520px 380px at 0% 100%,rgba(18,183,106,.08),transparent 70%);background-attachment:fixed;color:var(--ink);font-family:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-weight:500;font-size:16px;line-height:1.55}
 a{color:var(--primary-2)}
@@ -205,7 +206,11 @@ footer a{color:var(--body);text-decoration:none;font-weight:700}
             <label class="opt"><input type="radio" name="pay" value="Maybe, depends on the price" id="py2"><span>Maybe, depends on the price</span></label>
             <label class="opt"><input type="radio" name="pay" value="No, Free is enough" id="py3"><span>No, Free is enough</span></label>
           </div>
-          <input type="text" id="price" name="price" maxlength="60" placeholder="A fair one-time price for you (optional), e.g. ₹299 or $5">
+          <div id="pricebox" hidden style="display:grid;gap:10px">
+            <div class="hint" style="margin-top:0">What one-time price feels fair to you?</div>
+            <div class="opts" id="prices"></div>
+            <input type="text" id="price_other" name="price_other" maxlength="40" placeholder="Other amount">
+          </div>
         </fieldset>
 
         <div class="q" data-name="missing">
@@ -258,6 +263,26 @@ const WEB3FORMS_KEY = '1e2a768c-7246-4b8d-9ff2-f555cf478a9e';
   const fail = document.getElementById('sendfail');
   const thanks = document.getElementById('thanks');
 
+  // price chips in the visitor's likely currency; shown once they say Yes or Maybe to Pro
+  let tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch {}
+  const lang = navigator.language || '';
+  const PRICE_SETS = {
+    INR: ['₹199', '₹299', '₹499', '₹799', '₹999'],
+    GBP: ['£2.49', '£3.99', '£6.99', '£8.99', '£12.99'],
+    EUR: ['€2.99', '€4.99', '€7.99', '€9.99', '€14.99'],
+    USD: ['$2.99', '$4.99', '$7.99', '$9.99', '$14.99']
+  };
+  const cur = /Calcutta|Kolkata/.test(tz) || /-IN$/i.test(lang) ? 'INR'
+    : /^Europe\/(London|Belfast|Guernsey|Jersey|Isle_of_Man)$/.test(tz) || /-GB$/i.test(lang) ? 'GBP'
+    : /^(Europe|Atlantic\/(Canary|Madeira|Azores))/.test(tz) ? 'EUR'
+    : 'USD';
+  const PRICES = PRICE_SETS[cur];
+  document.getElementById('prices').innerHTML = PRICES.map((v, i) => '<label class="opt"><input type="radio" name="price" value="' + v + '" id="pr' + i + '"><span>' + v + '</span></label>').join('');
+  const pricebox = document.getElementById('pricebox');
+  const syncPrice = () => { const v = form.elements.pay.value; pricebox.hidden = !(v === 'Yes' || v.startsWith('Maybe')); };
+  form.addEventListener('change', (e) => { if (e.target.name === 'pay') syncPrice(); if (e.target.name === 'price') form.elements.price_other.value = ''; });
+  form.elements.price_other.addEventListener('input', () => { form.querySelectorAll('input[name=price]').forEach((r) => { r.checked = false; }); });
+
   // clear the red outline as soon as a question is answered
   form.addEventListener('input', (e) => { const q = e.target.closest('.q'); if (q) q.classList.remove('err'); });
 
@@ -285,7 +310,7 @@ const WEB3FORMS_KEY = '1e2a768c-7246-4b8d-9ff2-f555cf478a9e';
       'Parts they would use': checked('features').join(', ') || '-',
       'How they track money today': value('today') || '-',
       'Would pay once for Pro': value('pay') || '-',
-      'Fair one-time price': value('price') || '-',
+      'Fair one-time price': pricebox.hidden ? '-' : (value('price') || value('price_other') || '-'),
       'Confusing or missing': value('missing') || '-',
       'Country': value('country') || '-',
       'Email for early access': value('email') || '-',
