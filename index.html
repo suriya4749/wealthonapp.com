@@ -120,15 +120,37 @@ section{padding:72px 0}
 .tab .ti{position:absolute;left:18px;top:16px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--card-2);transition:background .25s}
 .tab .ti svg{width:18px;height:18px;stroke:var(--primary-2)}
 .tab h3{margin:0;font-size:17.5px;letter-spacing:-.01em;line-height:1.3;padding-top:4px}
-.tab p{margin:0;color:var(--muted);font-size:15px;max-height:0;opacity:0;overflow:hidden;transition:max-height .45s ease,opacity .35s ease,margin .35s}
+.tab .tx{display:block;max-height:0;opacity:0;overflow:hidden;transition:max-height .45s ease,opacity .35s ease,margin .35s}
+.tab .tp{display:block;color:var(--muted);font-size:15px}
+.tab .pts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tab .pts span{font-size:13px;font-weight:700;color:#D0D5DD;background:var(--card-2);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
 .tab.on{background:linear-gradient(180deg,#1A2140,#161B26);border-color:rgba(128,152,249,.45)}
 .tab.on .ti{background:var(--primary)}
 .tab.on .ti svg{stroke:#fff}
-.tab.on p{max-height:120px;opacity:1;margin-top:6px}
+.tab.on .tx{max-height:220px;opacity:1;margin-top:6px}
 .tab .bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:linear-gradient(90deg,var(--primary-2),var(--mint))}
 .tab.on .bar{animation:fill var(--dur,6s) linear forwards}
 @keyframes fill{to{width:100%}}
 .feat .phone{--pw:320px;margin:0 auto}
+/* phones: swipeable cards instead of tabs */
+.fcar,.fdots{display:none}
+.fcar{gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -16px;padding:4px 16px 8px;scroll-padding:0 16px}
+.fcar::-webkit-scrollbar{display:none}
+.fc{flex:0 0 86%;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.fshot{height:300px;overflow:hidden;background:linear-gradient(180deg,#1A2140,#0C111D);padding:18px 26px 0;display:flex;justify-content:center}
+.fshot img{width:100%;max-width:250px;height:auto;align-self:flex-start;border-radius:18px 18px 0 0;border:1px solid rgba(255,255,255,.08);border-bottom:0;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.fbody{padding:16px 18px 20px;display:grid;gap:10px}
+.fh{display:flex;align-items:center;gap:10px}
+.fh .ti{flex:none;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--primary)}
+.fh .ti svg{width:18px;height:18px;stroke:#fff}
+.fh h3{margin:0;font-size:18px;line-height:1.25;letter-spacing:-.01em}
+.fbody p{margin:0;color:var(--muted);font-size:15px}
+.fbody ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.fbody li{position:relative;padding-left:22px;font-size:14px;font-weight:700;color:#D0D5DD}
+.fbody li::before{content:"";position:absolute;left:2px;top:.45em;width:12px;height:12px;border-radius:50%;background:var(--mint-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%230C111D' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.fdots{justify-content:center;gap:6px;margin-top:14px}
+.fdots i{width:7px;height:7px;border-radius:999px;background:#3a4256;transition:width .25s,background .25s}
+.fdots i.on{width:22px;background:var(--primary-2)}
 
 /* privacy */
 .priv{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
@@ -225,8 +247,8 @@ footer nav a:hover{color:#fff}
   .hero{min-height:auto;padding:36px 0 30px}
   .hero .wrap{grid-template-columns:1fr}
   .stage{height:600px}
-  .feat{grid-template-columns:1fr;gap:34px}
-  .feat .phone{--pw:270px}
+  .feat{display:none}
+  .fcar,.fdots{display:flex}
   .priv,.plans,.faqgrid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   .steps .step:not(:last-child)::after{right:auto;left:38px;top:auto;bottom:-13px;transform:rotate(135deg)}
@@ -240,7 +262,6 @@ footer nav a:hover{color:#fff}
   .ring{width:340px;height:340px}.ring.r2{width:270px;height:270px}
   .c1{left:0;top:auto;bottom:150px}.c2{right:0;top:120px}.c3{display:none}
   .chip{padding:7px 10px;gap:8px;font-size:11px}.chip b{font-size:13.5px}.chip small{font-size:11px}.chip .ic{width:26px;height:26px}
-  .feat .phone{--pw:220px}
   .final{padding:30px}
   section{padding:48px 0}
   .stat b{font-size:32px}
@@ -314,14 +335,26 @@ footer nav a:hover{color:#fff}
     <p class="ss rv d1">Stop opening four bank apps to know where you stand. Import a statement from each bank, and WealthOn puts it together with your loans, EMIs and bills.</p>
     <div class="feat">
       <div class="tabs rv d2" role="tablist" aria-label="Features">
-        <button class="tab on" role="tab" aria-selected="true" data-img="img/import.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><h3>Bring in every bank, without typing</h3><p>Open the CSV or Excel statement from each of your banks. Every line is read on your phone, sorted into your categories and checked by you before it is saved.</p><span class="bar"></span></button>
-        <button class="tab" role="tab" aria-selected="false" data-img="img/bills.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><h3>Every due date in one calendar</h3><p>Rent, loan payments, insurance and subscriptions on one calendar, with a reminder the evening before.</p><span class="bar"></span></button>
-        <button class="tab" role="tab" aria-selected="false" data-img="img/loans.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><h3>All your loans and EMIs together</h3><p>Every loan in one list: what is left, how much is interest, which one to clear first, and the month you will be debt-free.</p><span class="bar"></span></button>
-        <button class="tab" role="tab" aria-selected="false" data-img="img/coach.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><h3>Ask before you buy</h3><p>"Can I afford this?" The coach does the sums from your monthly totals. It never sees your bank lines or shop names.</p><span class="bar"></span></button>
-        <button class="tab" role="tab" aria-selected="false" data-img="img/lend.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15M15 4l4 4-4 4M20 16H5M9 12l-4 4 4 4"/></svg></span><h3>Remember who owes you</h3><p>Money lent or borrowed, with the date you agreed and a polite reminder on WhatsApp or SMS in one tap.</p><span class="bar"></span></button>
+        <button class="tab on" role="tab" aria-selected="true" data-img="img/import.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><h3>Bring in every bank, without typing</h3><span class="tx"><span class="tp">Download the statement from each bank’s app or net banking and open it in WealthOn. Every line is read on your phone and checked by you before it’s saved.</span><span class="pts"><span>CSV or Excel from any bank</span><span>Sorted into the right month</span><span>Duplicates and card payments skipped</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/home.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 15h2"/></svg></span><h3>Know what’s free to spend today</h3><span class="tx"><span class="tp">One number on Home: what came in, minus bills, EMIs and spending so far, shared out over the days left in the month.</span><span class="pts"><span>About how much you can spend a day</span><span>Months can start on the 1st or on payday</span><span>Salary and rent can add themselves each month</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/bills.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><h3>Every due date in one calendar</h3><span class="tx"><span class="tp">Rent, loan payments, insurance, deposits and subscriptions on one calendar, sorted into overdue, next 7 days and later.</span><span class="pts"><span>A reminder the evening before</span><span>Tick a bill to mark it paid</span><span>See the whole month at a glance</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/loans.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><h3>All your loans and EMIs together</h3><span class="tx"><span class="tp">Personal, car, home and 0% gadget loans in one list: what’s left, how much of it is interest, and the month you’ll be debt-free.</span><span class="pts"><span>Debt-free countdown</span><span>Which loan to clear first to save the most</span><span>Part-prepay or close a loan and see the new date</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/goals.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><h3>Save for what matters</h3><span class="tx"><span class="tp">A trip, an emergency fund, a home: set the amount and the date, and WealthOn works out what to put aside each month.</span><span class="pts"><span>How much each goal needs a month</span><span>Warns when goals need more than you have free</span><span>Keep each goal’s money in the account you choose</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/score.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><h3>A Money score and an AI coach</h3><span class="tx"><span class="tp">One score out of 100 across seven areas, with tips that use your real numbers. Ask the coach “Can I afford this?” before you buy.</span><span class="pts"><span>Clear next steps with real amounts</span><span>The coach never sees your bank lines or shop names</span><span>Tips work offline; the AI coach is optional</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/lend.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15M15 4l4 4-4 4M20 16H5M9 12l-4 4 4 4"/></svg></span><h3>Remember who owes you</h3><span class="tx"><span class="tp">Money lent to friends or borrowed from them, with the date you agreed, part payments and a polite reminder in one tap.</span><span class="pts"><span>Reminder on WhatsApp or SMS</span><span>Part payments tracked</span><span>Doesn’t change your month’s totals</span></span></span><span class="bar"></span></button>
       </div>
       <div class="rv d3"><div class="phone"><div class="screen"><div class="sb"><span class="clock">9:41</span><span class="cam"></span><span class="icons"><svg viewBox="0 0 18 14"><path d="M1 13h2.5V9H1zM5.5 13H8V6.5H5.5zM10 13h2.5V4H10zM14.5 13H17V1h-2.5z"/></svg><svg viewBox="0 0 18 14"><path d="M9 13.5 0 3.6C2.4 1.5 5.6.3 9 .3s6.6 1.2 9 3.3z"/></svg><svg viewBox="0 0 24 14"><rect x=".8" y="1" width="19.5" height="12" rx="3" fill="none" stroke="#F5F5F6" stroke-width="1.4"/><rect x="3" y="3.2" width="13" height="7.6" rx="1.4"/><rect x="21.3" y="5" width="2" height="4" rx="1"/></svg></span></div><div class="view" id="featScreen"><img class="on" src="img/import.webp" alt="WealthOn screen for the selected feature"></div><div class="nav"><i></i></div></div></div></div>
     </div>
+    <div class="fcar rv d2" id="fcar" aria-label="Features">
+      <article class="fc"><div class="fshot"><img src="img/import.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><h3>Bring in every bank, without typing</h3></div><p>Download the statement from each bank’s app or net banking and open it in WealthOn. Every line is read on your phone and checked by you before it’s saved.</p><ul><li>CSV or Excel from any bank</li><li>Sorted into the right month</li><li>Duplicates and card payments skipped</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/home.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 15h2"/></svg></span><h3>Know what’s free to spend today</h3></div><p>One number on Home: what came in, minus bills, EMIs and spending so far, shared out over the days left in the month.</p><ul><li>About how much you can spend a day</li><li>Months can start on the 1st or on payday</li><li>Salary and rent can add themselves each month</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/bills.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><h3>Every due date in one calendar</h3></div><p>Rent, loan payments, insurance, deposits and subscriptions on one calendar, sorted into overdue, next 7 days and later.</p><ul><li>A reminder the evening before</li><li>Tick a bill to mark it paid</li><li>See the whole month at a glance</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/loans.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><h3>All your loans and EMIs together</h3></div><p>Personal, car, home and 0% gadget loans in one list: what’s left, how much of it is interest, and the month you’ll be debt-free.</p><ul><li>Debt-free countdown</li><li>Which loan to clear first to save the most</li><li>Part-prepay or close a loan and see the new date</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/goals.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><h3>Save for what matters</h3></div><p>A trip, an emergency fund, a home: set the amount and the date, and WealthOn works out what to put aside each month.</p><ul><li>How much each goal needs a month</li><li>Warns when goals need more than you have free</li><li>Keep each goal’s money in the account you choose</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/score.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><h3>A Money score and an AI coach</h3></div><p>One score out of 100 across seven areas, with tips that use your real numbers. Ask the coach “Can I afford this?” before you buy.</p><ul><li>Clear next steps with real amounts</li><li>The coach never sees your bank lines or shop names</li><li>Tips work offline; the AI coach is optional</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/lend.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15M15 4l4 4-4 4M20 16H5M9 12l-4 4 4 4"/></svg></span><h3>Remember who owes you</h3></div><p>Money lent to friends or borrowed from them, with the date you agreed, part payments and a polite reminder in one tap.</p><ul><li>Reminder on WhatsApp or SMS</li><li>Part payments tracked</li><li>Doesn’t change your month’s totals</li></ul></div></article>
+    </div>
+    <div class="fdots" id="fdots" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -454,7 +487,7 @@ footer nav a:hover{color:#fff}
   // features: tabs auto-advance; a click picks one and carries on from there
   const tabs = [...document.querySelectorAll('.tab')];
   const screen = document.getElementById('featScreen');
-  const DUR = 6000; let cur = 0, timer;
+  const DUR = 8000; let cur = 0, timer;
   tabs.forEach((t) => { const i = new Image(); i.src = t.dataset.img; t.style.setProperty('--dur', DUR + 'ms'); });
   const show = (i) => {
     tabs.forEach((t, k) => { t.classList.toggle('on', k === i); t.setAttribute('aria-selected', String(k === i)); });
@@ -467,6 +500,16 @@ footer nav a:hover{color:#fff}
     cur = i; clearTimeout(timer); if (!still) timer = setTimeout(() => show((cur + 1) % tabs.length), DUR);
   };
   tabs.forEach((t, i) => t.addEventListener('click', () => { const bar = t.querySelector('.bar'); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; show(i); }));
+
+  // phones: swipe cards, with dots that follow
+  const car = document.getElementById('fcar'), dots = document.getElementById('fdots');
+  if (car && dots) {
+    const cards = [...car.children];
+    dots.innerHTML = cards.map(() => '<i></i>').join('');
+    const ds = [...dots.children];
+    const mark = () => { const w = cards[0].getBoundingClientRect().width + 14; const i = Math.min(cards.length - 1, Math.round(car.scrollLeft / w)); ds.forEach((d, k) => d.classList.toggle('on', k === i)); };
+    car.addEventListener('scroll', () => requestAnimationFrame(mark), { passive: true }); mark();
+  }
 
   // reveal on scroll; start the feature rotation and the counters when they come into view
   let started = false;
