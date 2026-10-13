@@ -206,7 +206,7 @@ footer a{color:var(--body);text-decoration:none;font-weight:700}
             <label class="opt"><input type="radio" name="pay" value="Maybe, depends on the price" id="py2"><span>Maybe, depends on the price</span></label>
             <label class="opt"><input type="radio" name="pay" value="No, Free is enough" id="py3"><span>No, Free is enough</span></label>
           </div>
-          <div id="pricebox" hidden style="display:grid;gap:10px">
+          <div id="pricebox" style="display:grid;gap:10px">
             <div class="hint" style="margin-top:0">What one-time price feels fair to you?</div>
             <div class="opts" id="prices"></div>
             <input type="text" id="price_other" name="price_other" maxlength="40" placeholder="Other amount">
@@ -279,8 +279,7 @@ const WEB3FORMS_KEY = '1e2a768c-7246-4b8d-9ff2-f555cf478a9e';
   const PRICES = PRICE_SETS[cur];
   document.getElementById('prices').innerHTML = PRICES.map((v, i) => '<label class="opt"><input type="radio" name="price" value="' + v + '" id="pr' + i + '"><span>' + v + '</span></label>').join('');
   const pricebox = document.getElementById('pricebox');
-  const syncPrice = () => { const v = form.elements.pay.value; pricebox.hidden = !(v === 'Yes' || v.startsWith('Maybe')); };
-  form.addEventListener('change', (e) => { if (e.target.name === 'pay') syncPrice(); if (e.target.name === 'price') form.elements.price_other.value = ''; });
+  form.addEventListener('change', (e) => { if (e.target.name === 'price') form.elements.price_other.value = ''; });
   form.elements.price_other.addEventListener('input', () => { form.querySelectorAll('input[name=price]').forEach((r) => { r.checked = false; }); });
 
   // clear the red outline as soon as a question is answered
@@ -310,7 +309,7 @@ const WEB3FORMS_KEY = '1e2a768c-7246-4b8d-9ff2-f555cf478a9e';
       'Parts they would use': checked('features').join(', ') || '-',
       'How they track money today': value('today') || '-',
       'Would pay once for Pro': value('pay') || '-',
-      'Fair one-time price': pricebox.hidden ? '-' : (value('price') || value('price_other') || '-'),
+      'Fair one-time price': value('price') || value('price_other') || '-',
       'Confusing or missing': value('missing') || '-',
       'Country': value('country') || '-',
       'Email for early access': value('email') || '-',
