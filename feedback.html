@@ -250,7 +250,8 @@ footer a{color:var(--body);text-decoration:none;font-weight:700}
         </div>
 
         <div class="q" data-name="about">
-          <label class="t" for="country">About you <span style="color:var(--muted);font-weight:600;font-size:13.5px">(optional)</span></label>
+          <label class="t" for="name">About you <span style="color:var(--muted);font-weight:600;font-size:13.5px">(optional)</span></label>
+          <input type="text" id="name" name="name" maxlength="60" placeholder="Your name" autocomplete="name">
           <input type="text" id="country" name="country" maxlength="60" placeholder="Country">
           <input type="email" id="email" name="email" maxlength="120" placeholder="Email, if you'd like early access to the app">
         </div>
@@ -332,7 +333,8 @@ const WEB3FORMS_KEY = '1e2a768c-7246-4b8d-9ff2-f555cf478a9e';
     const scale = { '1': '1 (confusing)', '2': '2', '3': '3', '4': '4', '5': '5 (very clear)' };
     const payload = {
       access_key: WEB3FORMS_KEY,
-      subject: 'WealthOn feedback: ' + value('useful') + ', clarity ' + value('clarity') + '/5',
+      subject: 'WealthOn feedback' + (value('name') ? ' from ' + value('name') : '') + ': ' + value('useful') + ', clarity ' + value('clarity') + '/5',
+      'Name': value('name') || '-',
       from_name: 'WealthOn feedback page',
       'What WealthOn does (their words)': value('understood'),
       'How clear (1-5)': scale[value('clarity')] || value('clarity'),
