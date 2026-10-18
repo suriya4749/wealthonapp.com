@@ -403,7 +403,7 @@ footer nav a:hover{color:#fff}
       <div class="plan pro rv d2">
         <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#3D1F00"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg></span>
         <h3>WealthOn Pro</h3>
-        <p class="pp"><b style="display:block;font-size:30px;color:#fff;letter-spacing:-.02em;margin-bottom:2px">₹199</b>in India, about $3.99 · €3.99 · £3.99 elsewhere. One payment, no monthly fee.</p>
+        <p class="pp"><b id="pro-price" style="display:block;font-size:30px;color:#fff;letter-spacing:-.02em;margin-bottom:2px">₹199</b><span id="pro-where">in India, about $3.99 · €3.99 · £3.99 elsewhere.</span> One payment, no monthly fee.</p>
         <ul>
           <li>Unlimited statement imports, from every bank you use</li>
           <li>Smart categories and the AI coach</li>
@@ -529,6 +529,35 @@ footer nav a:hover{color:#fff}
     });
   }), { threshold: 0.18 });
   document.querySelectorAll('.rv').forEach((el) => io.observe(el));
+})();
+</script>
+<script>
+/* Pro price in the visitor's own currency, from their time zone (then the browser language).
+   Same prices as Play Console; anywhere else sees US dollars, and Play shows the exact local price. */
+(function () {
+  var P = {
+    INR: ['₹199', 'in India.'],
+    USD: ['$3.99', 'in US dollars.'],
+    EUR: ['€3.99', 'in euros.'],
+    GBP: ['£3.99', 'in the UK.']
+  };
+  var EURO = 'AT BE HR CY EE FI FR DE GR IE IT LV LT LU MT NL PT SK SI ES'.split(' ');
+  var TZ_EURO = /^Europe\/(Vienna|Brussels|Zagreb|Nicosia|Tallinn|Helsinki|Paris|Berlin|Athens|Dublin|Rome|Riga|Vilnius|Luxembourg|Malta|Amsterdam|Lisbon|Bratislava|Ljubljana|Madrid)$/;
+  var cur = null, tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  if (/^Asia\/(Kolkata|Calcutta)$/.test(tz)) cur = 'INR';
+  else if (/^Europe\/(London|Belfast)$/.test(tz)) cur = 'GBP';
+  else if (TZ_EURO.test(tz) || /^Atlantic\/(Madeira|Canary)$/.test(tz)) cur = 'EUR';
+  else if (/^America\/(New_York|Chicago|Denver|Los_Angeles|Phoenix|Anchorage|Detroit|Indiana|Kentucky|Boise|Juneau)/.test(tz) || tz === 'Pacific/Honolulu') cur = 'USD';
+  if (!cur) {
+    var reg = ((navigator.languages && navigator.languages[0]) || navigator.language || '').split('-')[1] || '';
+    reg = reg.toUpperCase();
+    cur = reg === 'IN' ? 'INR' : reg === 'GB' ? 'GBP' : EURO.indexOf(reg) >= 0 ? 'EUR' : 'USD';
+    if (cur === 'USD' && reg !== 'US') P.USD = ['$3.99', 'in US dollars, or about the same in your currency.'];
+  }
+  var p = P[cur];
+  var a = document.getElementById('pro-price'), b = document.getElementById('pro-where');
+  if (a && b && p) { a.textContent = p[0]; b.textContent = p[1]; }
 })();
 </script>
 </body>
