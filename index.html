@@ -237,6 +237,50 @@ footer nav a:hover{color:#fff}
 @keyframes fade{to{opacity:1}}
 @keyframes rise{from{opacity:0;transform:translateY(60px) scale(.96)}to{opacity:1;transform:none}}
 
+
+/* AI helpers */
+.aigrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.aipick{display:flex;flex-direction:column;gap:10px}
+.aib{position:relative;text-align:left;cursor:pointer;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px 16px 66px;transition:border-color .25s,background .25s}
+.aib:hover{border-color:#3A4255}
+.aib.on{border-color:var(--c);background:linear-gradient(135deg,color-mix(in srgb,var(--c) 14%,var(--card)),var(--card))}
+.aib .ai-ic{position:absolute;left:16px;top:16px;width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 22%,transparent);font-size:18px}
+.aib h3{margin:0;font-size:17px;letter-spacing:-.01em}
+.aib p{margin:4px 0 0;color:var(--muted);font-size:14.5px;line-height:1.5}
+.aib .meta{display:none;margin-top:10px;gap:6px;flex-wrap:wrap}
+.aib.on .meta{display:flex}
+.aib .meta span{font-size:12.5px;font-weight:700;border-radius:999px;padding:4px 10px;background:var(--card-2);border:1px solid var(--line);color:#D0D5DD}
+.aib .meta span b{color:var(--c)}
+.aidemo{position:sticky;top:90px;border-radius:26px;border:1px solid var(--line);background:linear-gradient(160deg,#151C2E,#0F1424);padding:22px;min-height:470px;overflow:hidden}
+.aidemo::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;right:-120px;top:-120px;background:var(--c,#7A5AF8);opacity:.16;filter:blur(40px);transition:background .4s}
+.aidemo .lbl{display:flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--c,#B692F6);margin-bottom:16px}
+.aidemo .lbl i{width:8px;height:8px;border-radius:50%;background:currentColor}
+.scene{display:none;flex-direction:column;gap:10px;position:relative}
+.scene.on{display:flex}
+.scene>*{animation:pop .5s cubic-bezier(.2,.9,.3,1.2) both}
+.scene>*:nth-child(2){animation-delay:.25s}.scene>*:nth-child(3){animation-delay:.5s}.scene>*:nth-child(4){animation-delay:.75s}.scene>*:nth-child(5){animation-delay:1s}.scene>*:nth-child(6){animation-delay:1.25s}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+.bub{max-width:86%;padding:12px 14px;border-radius:18px;font-size:15px;line-height:1.5}
+.bub.me{align-self:flex-end;background:#7A5AF8;color:#fff;font-weight:700;border-bottom-right-radius:6px}
+.bub.bot{align-self:flex-start;background:#fff;color:#101828;border-bottom-left-radius:6px}
+.bub.bot small{display:flex;align-items:center;gap:6px;font-weight:800;color:#5925DC;font-size:12px;margin-bottom:4px}
+.bub.bot ul{margin:6px 0 0;padding-left:18px;color:#475467;font-size:14px}
+.row2{display:flex;align-items:center;gap:12px;background:#fff;color:#101828;border-radius:14px;padding:11px 12px}
+.row2 .dot{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:15px;flex:none}
+.row2 b{font-size:14.5px}.row2 em{font-style:normal;display:block;font-size:12.5px;font-weight:700}
+.row2 .amt{margin-left:auto;font-weight:800}
+.tip{background:#fff;color:#101828;border-radius:14px;padding:12px 14px;border-left:4px solid var(--tc)}
+.tip b{display:block;font-size:15px}.tip span{color:#475467;font-size:13.5px}.tip .sv{float:right;color:#067647;font-weight:800;font-size:13.5px}
+.raw{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:#C7CEE0;background:rgba(255,255,255,.05);border:1px dashed rgba(255,255,255,.18);border-radius:12px;padding:10px 12px;line-height:1.7}
+.arrow{align-self:center;color:var(--c);font-size:22px;line-height:1}
+.qa{margin-top:22px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;border-radius:20px;border:1px solid rgba(108,233,166,.25);background:rgba(18,183,106,.07);padding:18px 20px}
+.qa .qi{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(18,183,106,.18);font-size:22px}
+.qa h3{margin:0;font-size:17px}.qa p{margin:2px 0 0;color:var(--muted);font-size:14.5px}
+.qa .free{font-weight:800;font-size:12.5px;color:var(--mint);border:1px solid rgba(108,233,166,.4);border-radius:999px;padding:5px 12px}
+.aitrust{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.aitrust span{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#D0D5DD;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 13px}
+@media (max-width:960px){.aigrid{grid-template-columns:1fr}.aidemo{position:relative;top:0;min-height:0;order:-1}.qa{grid-template-columns:auto 1fr}.qa .free{grid-column:1/-1;justify-self:start}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv,.hi .fade,.stage .phone,.stage .chip{opacity:1;transform:none}
@@ -277,6 +321,7 @@ footer nav a:hover{color:#fff}
     <nav aria-label="Main">
       <a href="#how">How it works</a>
       <a href="#features">Features</a>
+      <a href="#ai">AI coach</a>
       <a href="#privacy">Privacy</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">Questions</a>
@@ -358,6 +403,52 @@ footer nav a:hover{color:#fff}
   </div>
 </section>
 
+<section id="ai">
+  <div class="wrap">
+    <h2 class="sh rv">AI that helps, only when you ask.</h2>
+    <p class="ss rv d1">WealthOn has four AI helpers, each with one job. Tap one to see what it does and exactly what it gets to see. All of them are off until you say yes, and nothing is stored.</p>
+    <div class="aigrid">
+      <div class="aipick rv d1" role="tablist" aria-label="AI helpers">
+        <button class="aib on" role="tab" aria-selected="true" data-k="ask" style="--c:#B692F6"><span class="ai-ic">💬</span><h3>Ask the coach anything</h3><p>“Can I afford a new phone?” “Should I prepay my loan or save?” A plain answer with the sums done for you.</p><span class="meta"><span>Sees: <b>your month’s totals</b></span><span>Free: 1 question a month</span><span>Pro: 5 a day</span></span></button>
+        <button class="aib" role="tab" aria-selected="false" data-k="plan" style="--c:#FDB022"><span class="ai-ic">📋</span><h3>Your plan for this month</h3><p>4–6 changes that fit your numbers, how much each one frees up, and a checklist to tick off.</p><span class="meta"><span>Sees: <b>your month’s totals</b></span><span>Pro</span></span></button>
+        <button class="aib" role="tab" aria-selected="false" data-k="sort" style="--c:#7CA2FF"><span class="ai-ic">🏷️</span><h3>Smart categories</h3><p>After an import, shops you haven’t seen before go into the right category: Swiggy → Eating out, Decathlon → Shopping.</p><span class="meta"><span>Sees: <b>shop names only</b></span><span>Free: your first import</span><span>Pro: every import</span></span></button>
+        <button class="aib" role="tab" aria-selected="false" data-k="read" style="--c:#32D583"><span class="ai-ic">📄</span><h3>Read any statement</h3><p>A statement in another language or an unusual layout? The AI reads it, and every amount is checked against your file before you see it.</p><span class="meta"><span>Sees: <b>statement lines, card and account numbers hidden</b></span><span>Only when you tap “Read with AI”</span></span></button>
+      </div>
+      <div class="aidemo rv d2" id="aidemo" style="--c:#B692F6" aria-live="polite">
+        <div class="lbl"><i></i><span id="ailbl">Ask the coach anything</span></div>
+        <div class="scene on" data-k="ask">
+          <div class="bub me">Can I afford a <span data-amt="20000|450">₹20,000</span> phone this month?</div>
+          <div class="bub bot"><small>✨ Your coach</small><b>Yes, if you wait till the 5th.</b><ul><li>You have <span data-amt="31200|1700">₹31,200</span> free for 17 days.</li><li>After the phone, that’s about <span data-amt="660|37">₹660</span> a day.</li><li>Rent is already paid, so nothing big is left.</li></ul></div>
+          <div class="bub me">And if I buy it today?</div>
+          <div class="bub bot"><small>✨ Your coach</small>You’d be about <span data-amt="2800|160">₹2,800</span> short before payday. Waiting 5 days keeps you on track.</div>
+        </div>
+        <div class="scene" data-k="plan">
+          <div class="tip" style="--tc:#E04F16"><span class="sv">+<span data-amt="3000|60">₹3,000</span>/mo</span><b>Trim three subscriptions</b><span>Two music and one video app overlap. Cancel one this week.</span></div>
+          <div class="tip" style="--tc:#12B76A"><span class="sv">+<span data-amt="2500|120">₹2,500</span>/mo</span><b>Build a 1-month buffer</b><span>Move <span data-amt="2500|120">₹2,500</span> to savings on payday, before spending.</span></div>
+          <div class="tip" style="--tc:#EB6834"><span class="sv">−<span data-amt="9400|420">₹9,400</span> interest</span><b>Prepay the 14% loan first</b><span>It costs more than your savings earn.</span></div>
+          <div class="tip" style="--tc:#7A5AF8"><span class="sv">✓ done</span><b>Set a grocery plan</b><span>You spent 18% more than last month.</span></div>
+        </div>
+        <div class="scene" data-k="sort">
+          <div class="raw">UPI/412345/SWIGGY/swiggy@ybl<br>POS 4xxx DECATHLON SPORTS<br>NEFT-BESCOM ELECTRICITY</div>
+          <div class="arrow">↓</div>
+          <div class="row2"><span class="dot" style="background:#FEF0C7">🍴</span><span><b>Swiggy</b><em style="color:#E04F16">Eating out</em></span><span class="amt">−<span data-amt="386|9">₹386</span></span></div>
+          <div class="row2"><span class="dot" style="background:#D1E9FF">🛍️</span><span><b>Decathlon</b><em style="color:#1570EF">Shopping</em></span><span class="amt">−<span data-amt="1999|40">₹1,999</span></span></div>
+          <div class="row2"><span class="dot" style="background:#FEF7C3">💡</span><span><b>Bescom</b><em style="color:#CA8504">Bills &amp; utilities</em></span><span class="amt">−<span data-amt="1240|62">₹1,240</span></span></div>
+        </div>
+        <div class="scene" data-k="read">
+          <div class="raw">REWE Klein oHGErlangen DE 14.09.2026 −15,05 EUR<br>ANTHROPIC* CLAUDE<br>&nbsp;&nbsp;29.09.2026 28.09.2026 −21,42 EUR<br>Einzug des Rechnungsbetrages +74,80 EUR</div>
+          <div class="arrow">↓</div>
+          <div class="row2"><span class="dot" style="background:#D1FADF">🛒</span><span><b>Rewe</b><em style="color:#067647">Groceries · 14 Sep</em></span><span class="amt">−€15.05</span></div>
+          <div class="row2"><span class="dot" style="background:#FCE7F6">🔁</span><span><b>Anthropic (Claude)</b><em style="color:#C11574">Subscriptions · 29 Sep</em></span><span class="amt">−€21.42</span></div>
+          <div class="row2"><span class="dot" style="background:#F2F4F7">💳</span><span><b>Card bill payment</b><em style="color:#667085">Skipped: your spends already count</em></span><span class="amt" style="color:#98A2B3">€74.80</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="qa rv"><span class="qi">⚡</span><div><h3>Quick answers: no AI at all</h3><p>“Where can I spend less?” “When will I be debt-free?” “What will my RD, FD or SIP give?” Worked out on your phone from your own numbers, instantly, even offline.</p></div><span class="free">FREE · NOTHING SENT</span></div>
+    <div class="aitrust rv"><span>🔒 Off until you say yes</span><span>🙈 Never your bank password or account numbers</span><span>🗑️ Nothing is stored</span><span>🧑 Names that look like a person’s stay on your phone</span></div>
+  </div>
+</section>
+
 <section id="privacy">
   <div class="wrap">
     <h2 class="sh rv">Your money stays on your phone.</h2>
@@ -428,9 +519,9 @@ footer nav a:hover{color:#fff}
         <h3>Your data</h3>
         <details open><summary>Is my money data safe?</summary><p>It stays in WealthOn’s private storage on your phone, which other apps can’t read, and Android encrypts the phone’s storage. It never goes to our servers. Add a fingerprint lock so nobody else can open the app, and a backup password so your backups are sealed with AES-256.</p></details>
         <details><summary>What if I lose or change my phone?</summary><p>Send a copy to Google Drive in one tap whenever you like, and restore it on your new phone. Turn on automatic backup and a copy is saved by itself every week to a folder you choose (every day with Pro). Set a backup password and only you can open those files.</p></details>
-        <details><summary>Does the AI see my transactions?</summary><p>No. Smart categories are off until you say yes. Then they get only shop names you haven’t filed before; names that look like a person’s stay on your phone, and so do amounts, dates and account numbers. The coach gets monthly totals by your category names, only when you ask it. Nothing is stored.</p></details>
+        <details><summary>Does the AI see my transactions?</summary><p>No. Smart categories are off until you say yes. Then they get only shop names you haven’t filed before; names that look like a person’s stay on your phone, and so do amounts, dates and account numbers. The coach gets monthly totals by your category names, only when you ask it. “Read with AI” (for statements WealthOn can’t read by itself) sends the statement’s lines only when you tap it, with card, account and IBAN numbers hidden first. Nothing is stored.</p></details>
         <details><summary>Can I delete everything?</summary><p>Yes. Settings has “Erase all data”, and uninstalling the app removes it too. We keep no copy to ask us to delete. Backups you saved yourself stay where you put them, and if your phone’s own Google backup is on, Android may include WealthOn in it; you control that in Android settings.</p></details>
-        <details><summary>Does it work without internet?</summary><p>Yes. Everything works offline except smart categories and the coach, which need a connection.</p></details>
+        <details><summary>Does it work without internet?</summary><p>Yes. Everything works offline, including Quick answers. Only the AI helpers (the coach, smart categories and reading a statement with AI) need a connection.</p></details>
       </div>
       <div class="faq rv d2">
         <h3>Using the app</h3>
@@ -514,6 +605,21 @@ footer nav a:hover{color:#fff}
     car.addEventListener('scroll', () => requestAnimationFrame(mark), { passive: true }); mark();
   }
 
+
+  // AI helpers: pick one, its demo plays
+  const aiBtns = document.querySelectorAll('.aib'), demo = document.getElementById('aidemo');
+  const showAi = (b) => {
+    aiBtns.forEach((x) => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); });
+    demo.style.setProperty('--c', getComputedStyle(b).getPropertyValue('--c'));
+    document.getElementById('ailbl').textContent = b.querySelector('h3').textContent;
+    demo.querySelectorAll('.scene').forEach((sc) => {
+      const on = sc.dataset.k === b.dataset.k;
+      if (on) { sc.classList.remove('on'); void sc.offsetWidth; }
+      sc.classList.toggle('on', on);
+    });
+  };
+  aiBtns.forEach((b) => b.addEventListener('click', () => { showAi(b); if (innerWidth < 960) demo.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'center' }); }));
+
   // reveal on scroll; start the feature rotation and the counters when they come into view
   let started = false;
   const io = new IntersectionObserver((es) => es.forEach((e) => {
@@ -558,6 +664,14 @@ footer nav a:hover{color:#fff}
   var p = P[cur];
   var a = document.getElementById('pro-price'), b = document.getElementById('pro-where');
   if (a && b && p) { a.textContent = p[0]; b.textContent = p[1]; }
+  // example amounts in the AI section follow the visitor's currency too
+  if (cur !== 'INR') {
+    var sym = cur === 'EUR' ? '€' : cur === 'GBP' ? '£' : '$';
+    document.querySelectorAll('[data-amt]').forEach(function (el) {
+      var v = +el.getAttribute('data-amt').split('|')[1];
+      el.textContent = sym + v.toLocaleString('en-US');
+    });
+  }
 })();
 </script>
 </body>
