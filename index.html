@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WealthOn: every bank and loan in one place</title>
-<meta name="description" content="Money in many banks, loans and EMIs everywhere? WealthOn brings every account, loan and EMI into one place and shows what is free to spend. No sign-up, no bank login. Your data stays on your phone.">
-<meta property="og:title" content="WealthOn: every bank and loan in one place">
-<meta property="og:description" content="Every account, loan and EMI in one app. No sign-up, no bank login, your data stays on your phone.">
+<title>WealthOn: know what’s safe to spend</title>
+<meta name="description" content="Know what’s safe to spend. Get out of EMIs and loans sooner. WealthOn gives you one number every day, a Due radar for every EMI and bill, and your debt-free date. No sign-up, no bank login. Your data stays on your phone.">
+<meta property="og:title" content="WealthOn: know what’s safe to spend">
+<meta property="og:description" content="Know what’s safe to spend. Get out of EMIs sooner. No sign-up, no bank login, your data stays on your phone.">
 <meta property="og:image" content="https://wealthonapp.com/img/og.jpg">
 <meta property="og:url" content="https://wealthonapp.com/">
 <meta property="og:type" content="website">
@@ -58,6 +58,7 @@ header nav a:hover{color:var(--ink)}
 .tag i{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(108,233,166,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 8px rgba(108,233,166,0)}100%{box-shadow:0 0 0 0 rgba(108,233,166,0)}}
 h1{font-size:clamp(40px,5.6vw,70px);line-height:1.04;letter-spacing:-.04em;font-weight:800;margin:0 0 20px}
+h1 .line.sub{font-size:.58em;letter-spacing:-.03em;margin-top:.25em}
 h1 .line{display:block;overflow:hidden;padding-bottom:.04em}
 h1 .line span{display:inline-block}
 .grad{background:linear-gradient(90deg,#fff 0%,#C7D2FE 45%,#6CE9A6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -102,7 +103,7 @@ h1 .line span{display:inline-block}
 .chip small{display:block;color:var(--muted);font-weight:600;font-size:12px}
 .chip .ic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;flex:none}
 .chip .ic svg{width:17px;height:17px}
-.c1{left:-6px;top:120px;animation:bob 5s ease-in-out infinite}
+.c1{left:-6px;top:44px;animation:bob 5s ease-in-out infinite}
 .c2{right:-14px;top:300px;animation:bob 6s ease-in-out .8s infinite}
 .c3{left:-10px;bottom:40px;animation:bob 5.5s ease-in-out 1.6s infinite}
 @keyframes bob{50%{transform:translateY(-10px)}}
@@ -335,8 +336,8 @@ footer nav a:hover{color:#fff}
   <div class="wrap">
     <div>
       <div class="tag fade f4"><i></i>Android app · coming soon to Google Play</div>
-      <h1><span class="line"><span>Every bank.</span></span><span class="line"><span>Every loan.</span></span><span class="line"><span class="grad">One place.</span></span></h1>
-      <p class="lead fade f1">Salary in one bank, a credit card in another, EMIs going out of a third. Keeping track gets confusing fast. WealthOn brings every account, loan and EMI into one app and tells you what is really free to spend.</p>
+      <h1><span class="line"><span>Know what’s</span></span><span class="line"><span>safe to spend.</span></span><span class="line sub"><span class="grad">Get out of <span data-t="EMIs|loans">loans</span> sooner.</span></span></h1>
+      <p class="lead fade f1">One number every day: what you can safely spend, after your <span data-t="EMIs|loan payments">loan payments</span>, bills and the yearly costs still to come. A Due radar so nothing sneaks up. And a clear way to be debt-free sooner.</p>
       <div class="cta fade f2" id="get">
         <a class="play" href="#get" aria-disabled="true" title="WealthOn is coming to Google Play soon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z" fill="#3B5BDB"/></svg>
@@ -344,32 +345,32 @@ footer nav a:hover{color:#fff}
         </a>
         <a class="btn2" href="#how">See how it works</a>
       </div>
-      <div class="promises fade f3"><span>PDF, Excel or CSV from your bank</span><span>No bank login</span><span>Data stays on your phone</span><span>No sign-up</span></div>
+      <div class="promises fade f3"><span>Import any bank statement</span><span>No bank login</span><span>Data stays on your phone</span><span>No sign-up</span></div>
     </div>
 
     <div class="stage" id="stage" aria-hidden="true">
       <div class="ring"></div><div class="ring r2"></div>
       <div class="float"><div class="phone"><div class="screen"><div class="sb"><span class="clock">9:41</span><span class="cam"></span><span class="icons"><svg viewBox="0 0 18 14"><path d="M1 13h2.5V9H1zM5.5 13H8V6.5H5.5zM10 13h2.5V4H10zM14.5 13H17V1h-2.5z"/></svg><svg viewBox="0 0 18 14"><path d="M9 13.5 0 3.6C2.4 1.5 5.6.3 9 .3s6.6 1.2 9 3.3z"/></svg><svg viewBox="0 0 24 14"><rect x=".8" y="1" width="19.5" height="12" rx="3" fill="none" stroke="#F5F5F6" stroke-width="1.4"/><rect x="3" y="3.2" width="13" height="7.6" rx="1.4"/><rect x="21.3" y="5" width="2" height="4" rx="1"/></svg></span></div><div class="view" id="heroScreen">
-        <img class="on" src="img/home.webp" alt="">
-        <img src="img/bills.webp" alt="">
-        <img src="img/loans.webp" alt="">
-        <img src="img/coach.webp" alt="">
+        <img class="on" src="img/safe.webp" alt="">
+        <img src="img/due.webp" alt="">
+        <img src="img/afford.webp" alt="">
+        <img src="img/debtfree.webp" alt="">
       </div><div class="nav"><i></i></div></div></div></div>
-      <div class="chip c1"><span class="ic" style="background:rgba(18,183,106,.16)"><svg viewBox="0 0 24 24" fill="none" stroke="#6CE9A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v10H3z"/><circle cx="12" cy="12" r="2.5"/></svg></span><span><small>Free to spend</small><b id="freeNum">$1,240</b></span></div>
-      <div class="chip c2"><span class="ic" style="background:rgba(235,104,52,.16)"><svg viewBox="0 0 24 24" fill="none" stroke="#F79009" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><span><small>Loan-free</small><b>Jan 2029</b></span></div>
-      <div class="chip c3"><span class="ic" style="background:rgba(59,91,219,.2)"><svg viewBox="0 0 24 24" fill="none" stroke="#8098F9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg></span><span><small>All in one place</small><b>3 banks · 5 loans</b></span></div>
+      <div class="chip c1"><span class="ic" style="background:rgba(18,183,106,.16)"><svg viewBox="0 0 24 24" fill="none" stroke="#6CE9A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v10H3z"/><circle cx="12" cy="12" r="2.5"/></svg></span><span><small>Safe to spend today</small><b id="freeNum">$52</b></span></div>
+      <div class="chip c2"><span class="ic" style="background:rgba(235,104,52,.16)"><svg viewBox="0 0 24 24" fill="none" stroke="#F79009" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><span><small>Debt-free</small><b>Feb 2029</b></span></div>
+      <div class="chip c3"><span class="ic" style="background:rgba(59,91,219,.2)"><svg viewBox="0 0 24 24" fill="none" stroke="#8098F9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg></span><span><small>Days of freedom</small><b>37 days sooner</b></span></div>
     </div>
   </div>
 </section>
 
 <section id="how">
   <div class="wrap">
-    <h2 class="sh rv">Set up in five minutes.</h2>
-    <p class="ss rv d1">No account to make and nothing to connect. Open the app and answer a few questions.</p>
+    <h2 class="sh rv">Set up in two minutes.</h2>
+    <p class="ss rv d1">No account to make and nothing to connect. One screen, then WealthOn works out the rest.</p>
     <div class="steps">
-      <div class="step rv d1"><span class="n">1</span><h3>Tell it about your month</h3><p>Your currency, your take-home pay and the day your month starts: the 1st or your payday.</p><span class="time">About 1 minute</span></div>
-      <div class="step rv d2"><span class="n">2</span><h3>Add what you must pay</h3><p>Rent, loan payments, insurance, subscriptions. Or import last month’s bank statement and let WealthOn find them.</p><span class="time">2 to 4 minutes</span></div>
-      <div class="step rv d3"><span class="n">3</span><h3>Check one number each day</h3><p>Home shows what is free to spend until the month ends. Add spending in two taps, or import again next month.</p><span class="time">A few seconds a day</span></div>
+      <div class="step rv d1"><span class="n">1</span><h3>Pick your currency</h3><p>Your name and currency, and a second currency if you’re paid in one. Your salary if you like; Home asks later otherwise.</p><span class="time">30 seconds</span></div>
+      <div class="step rv d2"><span class="n">2</span><h3>Import a statement</h3><p>PDF, Excel or CSV from your bank. WealthOn finds your <span data-t="EMIs|loan payments">loan payments</span>, rent, salary and savings, sorts every spend, and asks you to confirm.</p><span class="time">About a minute</span></div>
+      <div class="step rv d3"><span class="n">3</span><h3>Check one number each day</h3><p>Home shows what’s safe to spend today, and a morning notification brings it to you. Add a spend in two taps, or import again next month.</p><span class="time">A few seconds a day</span></div>
     </div>
   </div>
 </section>
@@ -377,27 +378,27 @@ footer nav a:hover{color:#fff}
 <section id="features">
   <div class="wrap">
     <h2 class="sh rv">What it does for you.</h2>
-    <p class="ss rv d1">Stop opening four bank apps to know where you stand. Import a statement from each bank, and WealthOn puts it together with your loans, EMIs and bills.</p>
+    <p class="ss rv d1">One number for today, a clear view of what’s due, and a faster way out of debt. Everything else stays out of your way.</p>
     <div class="feat">
       <div class="tabs rv d2" role="tablist" aria-label="Features">
-        <button class="tab on" role="tab" aria-selected="true" data-img="img/import.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><h3>Bring in every bank, without typing</h3><span class="tx"><span class="tp">Download the statement from each bank’s app or net banking and open it in WealthOn. Every line is read on your phone and checked by you before it’s saved.</span><span class="pts"><span>PDF, Excel or CSV from your bank</span><span>Sorted into the right month</span><span>Duplicates and card payments skipped</span></span></span><span class="bar"></span></button>
-        <button class="tab" role="tab" aria-selected="false" data-img="img/home.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 15h2"/></svg></span><h3>Know what’s free to spend today</h3><span class="tx"><span class="tp">One number on Home: what came in, minus bills, EMIs and spending so far, shared out over the days left in the month.</span><span class="pts"><span>About how much you can spend a day</span><span>Months can start on the 1st or on payday</span><span>Salary and rent can add themselves each month</span></span></span><span class="bar"></span></button>
-        <button class="tab" role="tab" aria-selected="false" data-img="img/bills.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><h3>Every due date in one calendar</h3><span class="tx"><span class="tp">Rent, loan payments, insurance, deposits and subscriptions on one calendar, sorted into overdue, next 7 days and later.</span><span class="pts"><span>A reminder the evening before</span><span>Tick a bill to mark it paid</span><span>See the whole month at a glance</span></span></span><span class="bar"></span></button>
-        <button class="tab" role="tab" aria-selected="false" data-img="img/loans.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><h3>All your loans and EMIs together</h3><span class="tx"><span class="tp">Personal, car, home and 0% gadget loans in one list: what’s left, how much of it is interest, and the month you’ll be debt-free.</span><span class="pts"><span>Debt-free countdown</span><span>Which loan to clear first to save the most</span><span>Part-prepay or close a loan and see the new date</span></span></span><span class="bar"></span></button>
-        <button class="tab" role="tab" aria-selected="false" data-img="img/goals.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><h3>Save for what matters</h3><span class="tx"><span class="tp">A trip, an emergency fund, a home: set the amount and the date, and WealthOn works out what to put aside each month.</span><span class="pts"><span>How much each goal needs a month</span><span>Warns when goals need more than you have free</span><span>Keep each goal’s money in the account you choose</span></span></span><span class="bar"></span></button>
-        <button class="tab" role="tab" aria-selected="false" data-img="img/score.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><h3>A Money score and an AI coach</h3><span class="tx"><span class="tp">One score out of 100 across seven areas, with tips that use your real numbers. Ask the coach “Can I afford this?” before you buy.</span><span class="pts"><span>Clear next steps with real amounts</span><span>The coach never sees your bank lines or shop names</span><span>Tips work offline; the AI coach is optional</span></span></span><span class="bar"></span></button>
-        <button class="tab" role="tab" aria-selected="false" data-img="img/lend.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15M15 4l4 4-4 4M20 16H5M9 12l-4 4 4 4"/></svg></span><h3>Remember who owes you</h3><span class="tx"><span class="tp">Money lent to friends or borrowed from them, with the date you agreed, part payments and a polite reminder in one tap.</span><span class="pts"><span>Reminder on WhatsApp or SMS</span><span>Part payments tracked</span><span>Doesn’t change your month’s totals</span></span></span><span class="bar"></span></button>
+        <button class="tab on" role="tab" aria-selected="true" data-img="img/safe.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 15h2"/></svg></span><h3>Know what’s safe to spend today</h3><span class="tx"><span class="tp">One number on Home: your income, minus <span data-t="EMIs|loan payments">loan payments</span>, bills with a due date, savings and yearly bills, minus what you’ve spent, shared over the days left.</span><span class="pts"><span>A morning notification with today’s number</span><span>A free home-screen widget</span><span>Months can start on the 1st or on payday</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/due.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><h3>The Due radar: nothing sneaks up</h3><span class="tx"><span class="tp">Your next <span data-t="EMIs|loan payments">loan payments</span> and bills, with dates and amounts. If what’s due before payday is more than you have left, it tells you in time.</span><span class="pts"><span>A reminder the evening before</span><span>Swipe to mark something paid</span><span>Next month’s left-over before it starts</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/afford.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Days of freedom: money as time</h3><span class="tx"><span class="tp">Any amount shown as how much sooner you’d be debt-free. Before you buy, “Can I afford it?” shows what it does to this month, and what a “0%” plan really costs.</span><span class="pts"><span>“<span data-amt="20000|400">₹20,000</span> = 37 days sooner”</span><span>Pay now or over time</span><span>Fees and interest shown in full</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/debtfree.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><h3>Get out of <span data-t="EMIs|loans">loans</span> sooner</h3><span class="tx"><span class="tp">Every loan in one countdown: what’s left, how much is interest, and the exact day you’re debt-free. Prepay a little and watch the date move.</span><span class="pts"><span>Debt-free countdown, to the day</span><span>Which loan to clear first (Pro)</span><span>Preview the moment, then share it</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/yearly.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9c1 .5 2 1.6 2 3M5 11a7 6 0 0 1 12-2.5h2v4l-1.5 1V17h-3v-1.6a8 8 0 0 1-4 0V17h-3v-2.2A6 6 0 0 1 5 11z"/><circle cx="14" cy="10.5" r=".6"/></svg></span><h3>Yearly bills, without the shock</h3><span class="tx"><span class="tp">Insurance, school costs, holidays: add them once. WealthOn sets a little aside every month, so the month they’re due is calm.</span><span class="pts"><span>Counted in Safe to spend</span><span>Ideas from what you paid last year</span><span>Paid from the pot when it comes</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/firstlook.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><h3>Import a statement. It works out the rest</h3><span class="tx"><span class="tp">PDF, Excel or CSV from almost any bank. In about a minute it finds your <span data-t="EMIs|loan payments">loan payments</span>, rent, salary and savings, and sorts every spend.</span><span class="pts"><span>Read on your phone, checked by you</span><span>Learns from every correction</span><span>Card statements and other languages too</span></span></span><span class="bar"></span></button>
+        <button class="tab" role="tab" aria-selected="false" data-img="img/trust.webp"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><h3>Your data, shown</h3><span class="tx"><span class="tp">No account and no bank login. Your entries stay on your phone, and WealthOn lists every request that ever left it, word for word.</span><span class="pts"><span>AI asks first and sees only shop names or totals</span><span>No ads, no tracking</span><span>Backups sealed with your own password</span></span></span><span class="bar"></span></button>
       </div>
-      <div class="rv d3"><div class="phone"><div class="screen"><div class="sb"><span class="clock">9:41</span><span class="cam"></span><span class="icons"><svg viewBox="0 0 18 14"><path d="M1 13h2.5V9H1zM5.5 13H8V6.5H5.5zM10 13h2.5V4H10zM14.5 13H17V1h-2.5z"/></svg><svg viewBox="0 0 18 14"><path d="M9 13.5 0 3.6C2.4 1.5 5.6.3 9 .3s6.6 1.2 9 3.3z"/></svg><svg viewBox="0 0 24 14"><rect x=".8" y="1" width="19.5" height="12" rx="3" fill="none" stroke="#F5F5F6" stroke-width="1.4"/><rect x="3" y="3.2" width="13" height="7.6" rx="1.4"/><rect x="21.3" y="5" width="2" height="4" rx="1"/></svg></span></div><div class="view" id="featScreen"><img class="on" src="img/import.webp" alt="WealthOn screen for the selected feature"></div><div class="nav"><i></i></div></div></div></div>
+      <div class="rv d3"><div class="phone"><div class="screen"><div class="sb"><span class="clock">9:41</span><span class="cam"></span><span class="icons"><svg viewBox="0 0 18 14"><path d="M1 13h2.5V9H1zM5.5 13H8V6.5H5.5zM10 13h2.5V4H10zM14.5 13H17V1h-2.5z"/></svg><svg viewBox="0 0 18 14"><path d="M9 13.5 0 3.6C2.4 1.5 5.6.3 9 .3s6.6 1.2 9 3.3z"/></svg><svg viewBox="0 0 24 14"><rect x=".8" y="1" width="19.5" height="12" rx="3" fill="none" stroke="#F5F5F6" stroke-width="1.4"/><rect x="3" y="3.2" width="13" height="7.6" rx="1.4"/><rect x="21.3" y="5" width="2" height="4" rx="1"/></svg></span></div><div class="view" id="featScreen"><img class="on" src="img/safe.webp" alt="WealthOn screen for the selected feature"></div><div class="nav"><i></i></div></div></div></div>
     </div>
     <div class="fcar rv d2" id="fcar" aria-label="Features">
-      <article class="fc"><div class="fshot"><img src="img/import.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><h3>Bring in every bank, without typing</h3></div><p>Download the statement from each bank’s app or net banking and open it in WealthOn. Every line is read on your phone and checked by you before it’s saved.</p><ul><li>PDF, Excel or CSV from your bank</li><li>Sorted into the right month</li><li>Duplicates and card payments skipped</li></ul></div></article>
-      <article class="fc"><div class="fshot"><img src="img/home.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 15h2"/></svg></span><h3>Know what’s free to spend today</h3></div><p>One number on Home: what came in, minus bills, EMIs and spending so far, shared out over the days left in the month.</p><ul><li>About how much you can spend a day</li><li>Months can start on the 1st or on payday</li><li>Salary and rent can add themselves each month</li></ul></div></article>
-      <article class="fc"><div class="fshot"><img src="img/bills.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><h3>Every due date in one calendar</h3></div><p>Rent, loan payments, insurance, deposits and subscriptions on one calendar, sorted into overdue, next 7 days and later.</p><ul><li>A reminder the evening before</li><li>Tick a bill to mark it paid</li><li>See the whole month at a glance</li></ul></div></article>
-      <article class="fc"><div class="fshot"><img src="img/loans.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><h3>All your loans and EMIs together</h3></div><p>Personal, car, home and 0% gadget loans in one list: what’s left, how much of it is interest, and the month you’ll be debt-free.</p><ul><li>Debt-free countdown</li><li>Which loan to clear first to save the most</li><li>Part-prepay or close a loan and see the new date</li></ul></div></article>
-      <article class="fc"><div class="fshot"><img src="img/goals.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><h3>Save for what matters</h3></div><p>A trip, an emergency fund, a home: set the amount and the date, and WealthOn works out what to put aside each month.</p><ul><li>How much each goal needs a month</li><li>Warns when goals need more than you have free</li><li>Keep each goal’s money in the account you choose</li></ul></div></article>
-      <article class="fc"><div class="fshot"><img src="img/score.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><h3>A Money score and an AI coach</h3></div><p>One score out of 100 across seven areas, with tips that use your real numbers. Ask the coach “Can I afford this?” before you buy.</p><ul><li>Clear next steps with real amounts</li><li>The coach never sees your bank lines or shop names</li><li>Tips work offline; the AI coach is optional</li></ul></div></article>
-      <article class="fc"><div class="fshot"><img src="img/lend.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15M15 4l4 4-4 4M20 16H5M9 12l-4 4 4 4"/></svg></span><h3>Remember who owes you</h3></div><p>Money lent to friends or borrowed from them, with the date you agreed, part payments and a polite reminder in one tap.</p><ul><li>Reminder on WhatsApp or SMS</li><li>Part payments tracked</li><li>Doesn’t change your month’s totals</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/safe.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 15h2"/></svg></span><h3>Know what’s safe to spend today</h3></div><p>One number on Home: your income, minus <span data-t="EMIs|loan payments">loan payments</span>, bills with a due date, savings and yearly bills, minus what you’ve spent, shared over the days left.</p><ul><li>A morning notification with today’s number</li><li>A free home-screen widget</li><li>Months can start on the 1st or on payday</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/due.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><h3>The Due radar: nothing sneaks up</h3></div><p>Your next <span data-t="EMIs|loan payments">loan payments</span> and bills, with dates and amounts. If what’s due before payday is more than you have left, it tells you in time.</p><ul><li>A reminder the evening before</li><li>Swipe to mark something paid</li><li>Next month’s left-over before it starts</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/afford.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Days of freedom: money as time</h3></div><p>Any amount shown as how much sooner you’d be debt-free. Before you buy, “Can I afford it?” shows what it does to this month, and what a “0%” plan really costs.</p><ul><li>“<span data-amt="20000|400">₹20,000</span> = 37 days sooner”</li><li>Pay now or over time</li><li>Fees and interest shown in full</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/debtfree.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h11l-2 4 2 4H5"/></svg></span><h3>Get out of <span data-t="EMIs|loans">loans</span> sooner</h3></div><p>Every loan in one countdown: what’s left, how much is interest, and the exact day you’re debt-free. Prepay a little and watch the date move.</p><ul><li>Debt-free countdown, to the day</li><li>Which loan to clear first (Pro)</li><li>Preview the moment, then share it</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/yearly.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9c1 .5 2 1.6 2 3M5 11a7 6 0 0 1 12-2.5h2v4l-1.5 1V17h-3v-1.6a8 8 0 0 1-4 0V17h-3v-2.2A6 6 0 0 1 5 11z"/><circle cx="14" cy="10.5" r=".6"/></svg></span><h3>Yearly bills, without the shock</h3></div><p>Insurance, school costs, holidays: add them once. WealthOn sets a little aside every month, so the month they’re due is calm.</p><ul><li>Counted in Safe to spend</li><li>Ideas from what you paid last year</li><li>Paid from the pot when it comes</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/firstlook.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><h3>Import a statement. It works out the rest</h3></div><p>PDF, Excel or CSV from almost any bank. In about a minute it finds your <span data-t="EMIs|loan payments">loan payments</span>, rent, salary and savings, and sorts every spend.</p><ul><li>Read on your phone, checked by you</li><li>Learns from every correction</li><li>Card statements and other languages too</li></ul></div></article>
+      <article class="fc"><div class="fshot"><img src="img/trust.webp" alt="" loading="lazy"></div><div class="fbody"><div class="fh"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><h3>Your data, shown</h3></div><p>No account and no bank login. Your entries stay on your phone, and WealthOn lists every request that ever left it, word for word.</p><ul><li>AI asks first and sees only shop names or totals</li><li>No ads, no tracking</li><li>Backups sealed with your own password</li></ul></div></article>
     </div>
     <div class="fdots" id="fdots" aria-hidden="true"></div>
   </div>
@@ -445,13 +446,13 @@ footer nav a:hover{color:#fff}
       </div>
     </div>
     <div class="qa rv"><span class="qi">⚡</span><div><h3>Quick answers: no AI at all</h3><p>“Where can I spend less?” “When will I be debt-free?” “What will my RD, FD or SIP give?” Worked out on your phone from your own numbers, instantly, even offline.</p></div><span class="free">FREE · NOTHING SENT</span></div>
-    <div class="aitrust rv"><span>🔒 Off until you say yes</span><span>🙈 Never your bank password or account numbers</span><span>🗑️ Nothing is stored</span><span>🧑 Names that look like a person’s stay on your phone</span></div>
+    <div class="aitrust rv"><span>🔒 Off until you say yes</span><span>🙈 Never your bank password or account numbers</span><span>🗂️ Only shop names are remembered, nothing about you</span><span>🧑 Names that look like a person’s stay on your phone</span></div>
   </div>
 </section>
 
 <section id="privacy">
   <div class="wrap">
-    <h2 class="sh rv">Your money stays on your phone.</h2>
+    <h2 class="sh rv">Your data stays on your phone. We show you.</h2>
     <p class="ss rv d1">Your entries live in a database on your phone. We, the developer, never see them and keep no copy. Only you decide where a backup goes, and you can lock it with your own password.</p>
     <div class="priv">
       <div class="glass rv d1">
@@ -468,6 +469,7 @@ footer nav a:hover{color:#fff}
         <li><span><b>Never moves your money</b><span>WealthOn can’t pay, transfer or touch any account. It only shows numbers.</span></span></li>
         <li><span><b>Never makes you sign up</b><span>No email, no phone number, no account. Open it and start.</span></span></li>
         <li><span><b>Never shows ads or sells data</b><span>There are no ads and no trackers. Pro is how WealthOn is paid for.</span></span></li>
+        <li><span><b>Shows you everything that was sent</b><span>“Your data, shown” lists every request that ever left your phone, word for word. Usually there are none.</span></span></li>
         <li><span><b>Locks your backups if you want</b><span>Set a backup password and every backup is sealed with AES-256. Without it nobody can open the file, including us.</span></span></li>
       </ul>
     </div>
@@ -477,18 +479,18 @@ footer nav a:hover{color:#fff}
 <section id="pricing">
   <div class="wrap">
     <h2 class="sh rv">Free to use. Pro is one payment.</h2>
-    <p class="ss rv d1">Everything you need for the month is free. Pro saves you time every month, and you pay for it once.</p>
+    <p class="ss rv d1">Everything you need every day is free. Pro gets you debt-free faster and lets AI do the sorting, and you pay for it once.</p>
     <div class="plans">
       <div class="plan rv d1">
         <h3>Free</h3>
         <p class="pp">Free forever</p>
         <ul>
-          <li>What is free to spend, every day</li>
-          <li>Budgets, bills calendar and 3 repeat entries</li>
-          <li>Loans and your debt-free date</li>
-          <li>Money score, reminders, weekly automatic backup and app lock</li>
-          <li>2 goals and 2 lend &amp; borrow records</li>
-          <li>1 statement import every month</li>
+          <li>Safe to spend every day, with a morning number</li>
+          <li>The Due radar, reminders and next month’s preview</li>
+          <li>Days of freedom, Can I afford it? and your debt-free date</li>
+          <li>Yearly bills, budgets, the money check-up and 3 repeat entries</li>
+          <li>2 goals, weekly automatic backup and app lock</li>
+          <li>1 statement import a month, and the Safe to spend and Add widgets</li>
         </ul>
       </div>
       <div class="plan pro rv d2">
@@ -496,13 +498,12 @@ footer nav a:hover{color:#fff}
         <h3>WealthOn Pro</h3>
         <p class="pp"><b id="pro-price" style="display:block;font-size:30px;color:#fff;letter-spacing:-.02em;margin-bottom:2px">₹199</b><span id="pro-where">in India, about $3.99 · €3.99 · £3.99 elsewhere.</span> One payment, no monthly fee.</p>
         <ul>
-          <li>Unlimited statement imports, from every bank you use</li>
-          <li>Smart categories and the AI coach</li>
-          <li>Payoff planner, next month preview and subscriptions finder</li>
-          <li>Daily automatic backup</li>
-          <li>Unlimited repeat entries, goals and lend &amp; borrow</li>
-          <li>Analytics for a year and your score month by month</li>
-          <li>Receipt photos, widget, CSV export and extra colours</li>
+          <li>Get debt-free faster: the payoff planner and subscriptions finder</li>
+          <li>Let AI do the work: AI sorting on every import, unlimited imports, the AI coach</li>
+          <li>The big picture: analytics for a year and your score month by month</li>
+          <li>All 20 home-screen widgets and daily automatic backup</li>
+          <li>Unlimited goals, repeat entries and lend &amp; borrow</li>
+          <li>Receipt photos, CSV export and extra colours</li>
         </ul>
         <p class="note">Free users get their first statement import sorted by AI and one AI coach question a month, so you can see Pro working on your own money first. Google Play shows the exact price in your currency before you pay.</p>
       </div>
@@ -519,7 +520,7 @@ footer nav a:hover{color:#fff}
         <h3>Your data</h3>
         <details open><summary>Is my money data safe?</summary><p>It stays in WealthOn’s private storage on your phone, which other apps can’t read, and Android encrypts the phone’s storage. It never goes to our servers. Add a fingerprint lock so nobody else can open the app, and a backup password so your backups are sealed with AES-256.</p></details>
         <details><summary>What if I lose or change my phone?</summary><p>Send a copy to Google Drive in one tap whenever you like, and restore it on your new phone. Turn on automatic backup and a copy is saved by itself every week to a folder you choose (every day with Pro). Set a backup password and only you can open those files.</p></details>
-        <details><summary>Does the AI see my transactions?</summary><p>No. Smart categories are off until you say yes. Then they get only shop names you haven’t filed before; names that look like a person’s stay on your phone, and so do amounts, dates and account numbers. The coach gets monthly totals by your category names, only when you ask it. “Read with AI” (for statements WealthOn can’t read by itself) sends the statement’s lines only when you tap it, with card, account and IBAN numbers hidden first. Nothing is stored.</p></details>
+        <details><summary>Does the AI see my transactions?</summary><p>No. Smart categories are off until you say yes. Then they get only shop names you haven’t filed before; names that look like a person’s stay on your phone, and so do amounts, dates and account numbers. The coach gets monthly totals by your category names, only when you ask it. “Read with AI” (for statements WealthOn can’t read by itself) sends the statement’s lines only when you tap it, with card, account and IBAN numbers hidden first. Nothing about you is stored: the server only remembers which category common shop names (like Starbucks or Swiggy) belong to, so it can answer without asking the AI again. Settings → Your data, shown lists every request, word for word.</p></details>
         <details><summary>Can I delete everything?</summary><p>Yes. Settings has “Erase all data”, and uninstalling the app removes it too. We keep no copy to ask us to delete. Backups you saved yourself stay where you put them, and if your phone’s own Google backup is on, Android may include WealthOn in it; you control that in Android settings.</p></details>
         <details><summary>Does it work without internet?</summary><p>Yes. Everything works offline, including Quick answers. Only the AI helpers (the coach, smart categories and reading a statement with AI) need a connection.</p></details>
       </div>
@@ -541,7 +542,7 @@ footer nav a:hover{color:#fff}
 <section style="padding-top:0">
   <div class="wrap">
     <div class="final rv">
-      <h2>All your money in one place.</h2>
+      <h2>Know what’s safe to spend.</h2>
       <a class="play" href="#get" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z" fill="#3B5BDB"/></svg><span><small>Coming soon on</small>Google Play</span></a>
     </div>
   </div>
@@ -569,10 +570,10 @@ footer nav a:hover{color:#fff}
   if (!still) setInterval(() => { hero[h].classList.remove('on'); h = (h + 1) % hero.length; hero[h].classList.add('on'); }, 3200);
   setTimeout(() => document.getElementById('stage').classList.add('go'), still ? 0 : 1100);
 
-  // the free-to-spend chip counts up once
+  // the safe-to-spend chip counts up once
   const free = document.getElementById('freeNum');
   if (!still) {
-    const end = 1240, t0 = performance.now() + 1100;
+    const end = 52, t0 = performance.now() + 1100;
     free.textContent = '$0';
     const tick = (t) => { const p = Math.min(1, Math.max(0, (t - t0) / 1200)); free.textContent = '$' + Math.round(end * (1 - Math.pow(1 - p, 3))).toLocaleString('en-US'); if (p < 1) requestAnimationFrame(tick); };
     requestAnimationFrame(tick);
@@ -664,6 +665,8 @@ footer nav a:hover{color:#fff}
   var p = P[cur];
   var a = document.getElementById('pro-price'), b = document.getElementById('pro-where');
   if (a && b && p) { a.textContent = p[0]; b.textContent = p[1]; }
+  // words follow the visitor too: "EMI" in India, "loan" elsewhere
+  if (cur === 'INR') document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = el.getAttribute('data-t').split('|')[0]; });
   // example amounts in the AI section follow the visitor's currency too
   if (cur !== 'INR') {
     var sym = cur === 'EUR' ? '€' : cur === 'GBP' ? '£' : '$';
