@@ -332,7 +332,7 @@ footer nav a:hover{color:#fff}
     <nav aria-label="Main">
       <a href="#how">How it works</a>
       <a href="#features">Features</a>
-      <a href="#ai">AI coach</a>
+      <a href="#ai">Your plan</a>
       <a href="#privacy">Privacy</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">Questions</a>
@@ -416,28 +416,26 @@ footer nav a:hover{color:#fff}
 
 <section id="ai">
   <div class="wrap">
-    <h2 class="sh rv">AI that helps, only when you ask.</h2>
-    <p class="ss rv d1">WealthOn has four AI helpers, each with one job. Tap one to see what it does and exactly what it gets to see. All of them are off until you say yes, and nothing is stored.</p>
+    <h2 class="sh rv">Your plan on the phone. AI only when you ask.</h2>
+    <p class="ss rv d1">This month’s plan and the answers to 15 money questions are worked out on your phone, from your own numbers, with no AI and nothing sent. AI helps with three jobs, each off until you say yes. Tap one to see what it does and exactly what it gets to see.</p>
     <div class="aigrid">
       <div class="aipick rv d1" role="tablist" aria-label="AI helpers">
-        <button class="aib on" role="tab" aria-selected="true" data-k="ask" style="--c:#B692F6"><span class="ai-ic">💬</span><h3>Ask the coach anything</h3><p>“Can I afford a new phone?” “Should I prepay my loan or save?” A plain answer with the sums done for you.</p><span class="meta"><span>Sees: <b>your month’s totals</b></span><span>Free: 1 question a month</span><span>Pro: 5 a day</span></span></button>
-        <button class="aib" role="tab" aria-selected="false" data-k="plan" style="--c:#FDB022"><span class="ai-ic">📋</span><h3>Your plan for this month</h3><p>4–6 changes that fit your numbers, how much each one frees up, and a checklist to tick off.</p><span class="meta"><span>Sees: <b>your month’s totals</b></span><span>Pro</span></span></button>
+        <button class="aib on" role="tab" aria-selected="true" data-k="plan" style="--c:#FDB022"><span class="ai-ic">📋</span><h3>This month’s plan</h3><p>The 3 things to do first, a limit for every category, a daily amount for each week, and a halfway check. Worked out on your phone.</p><span class="meta"><span>Sees: <b>nothing leaves your phone</b></span><span>Free for everyone</span></span></button>
+        <button class="aib" role="tab" aria-selected="false" data-k="ask" style="--c:#B692F6"><span class="ai-ic">💬</span><h3>Coach’s words</h3><p>The same plan, rewritten by AI in a friendly coach’s voice. It may change the words, never the numbers: a line with a new number is thrown away.</p><span class="meta"><span>Sees: <b>the plan’s own text</b></span><span>Pro: once a month</span></span></button>
         <button class="aib" role="tab" aria-selected="false" data-k="sort" style="--c:#7CA2FF"><span class="ai-ic">🏷️</span><h3>Smart categories</h3><p>After an import, shops you haven’t seen before go into the right category: Swiggy → Eating out, Decathlon → Shopping.</p><span class="meta"><span>Sees: <b>shop names only</b></span><span>Free: your first import</span><span>Pro: every import</span></span></button>
         <button class="aib" role="tab" aria-selected="false" data-k="read" style="--c:#32D583"><span class="ai-ic">📄</span><h3>Read any statement</h3><p>A statement in another language or an unusual layout? The AI reads it, and every amount is checked against your file before you see it.</p><span class="meta"><span>Sees: <b>statement lines, card and account numbers hidden</b></span><span>Only when you tap “Read with AI”</span></span></button>
       </div>
-      <div class="aidemo rv d2" id="aidemo" style="--c:#B692F6" aria-live="polite">
-        <div class="lbl"><i></i><span id="ailbl">Ask the coach anything</span></div>
-        <div class="scene on" data-k="ask">
-          <div class="bub me">Can I afford a <span data-amt="20000|450">₹20,000</span> phone this month?</div>
-          <div class="bub bot"><small>✨ Your coach</small><b>Yes, if you wait till the 5th.</b><ul><li>You have <span data-amt="31200|1700">₹31,200</span> free for 17 days.</li><li>After the phone, that’s about <span data-amt="660|37">₹660</span> a day.</li><li>Rent is already paid, so nothing big is left.</li></ul></div>
-          <div class="bub me">And if I buy it today?</div>
-          <div class="bub bot"><small>✨ Your coach</small>You’d be about <span data-amt="2800|160">₹2,800</span> short before payday. Waiting 5 days keeps you on track.</div>
+      <div class="aidemo rv d2" id="aidemo" style="--c:#FDB022" aria-live="polite">
+        <div class="lbl"><i></i><span id="ailbl">This month’s plan</span></div>
+        <div class="scene on" data-k="plan">
+          <div class="tip" style="--tc:#B42318"><span class="sv">by 25 Oct</span><b>Pay the full <span data-amt="18400|460">₹18,400</span> card bill</b><span>Only the minimum would cost about <span data-amt="760|19">₹760</span> in interest.</span></div>
+          <div class="tip" style="--tc:#E04F16"><span class="sv">+<span data-amt="4850|120">₹4,850</span></span><b>Bring Eating out back to <span data-amt="6000|150">₹6,000</span></b><span>At this pace it heads for <span data-amt="10850|270">₹10,850</span>.</span></div>
+          <div class="tip" style="--tc:#12B76A"><span class="sv"><span data-amt="2375|60">₹2,375</span>/day</span><b>This week’s daily amount</b><span>For day-to-day spending, 22–28 Oct.</span></div>
+          <div class="tip" style="--tc:#7A5AF8"><span class="sv">✓ done</span><b>Add <span data-amt="4000|100">₹4,000</span> to the Goa trip</b><span>6 months to go, on time.</span></div>
         </div>
-        <div class="scene" data-k="plan">
-          <div class="tip" style="--tc:#E04F16"><span class="sv">+<span data-amt="3000|60">₹3,000</span>/mo</span><b>Trim three subscriptions</b><span>Two music and one video app overlap. Cancel one this week.</span></div>
-          <div class="tip" style="--tc:#12B76A"><span class="sv">+<span data-amt="2500|120">₹2,500</span>/mo</span><b>Build a 1-month buffer</b><span>Move <span data-amt="2500|120">₹2,500</span> to savings on payday, before spending.</span></div>
-          <div class="tip" style="--tc:#EB6834"><span class="sv">−<span data-amt="9400|420">₹9,400</span> interest</span><b>Prepay the 14% loan first</b><span>It costs more than your savings earn.</span></div>
-          <div class="tip" style="--tc:#7A5AF8"><span class="sv">✓ done</span><b>Set a grocery plan</b><span>You spent 18% more than last month.</span></div>
+        <div class="scene" data-k="ask">
+          <div class="bub bot" style="opacity:.7"><small>📋 Plain numbers (worked out on your phone)</small>Pay the full <span data-amt="18400|460">₹18,400</span> card bill by 25 Oct. Only the <span data-amt="920|23">₹920</span> minimum costs about <span data-amt="760|19">₹760</span> in interest.</div>
+          <div class="bub bot"><small>✨ Coach’s words</small><b>Clear the whole <span data-amt="18400|460">₹18,400</span> by 25 Oct.</b><ul><li>Paying just <span data-amt="920|23">₹920</span> sounds easy, but it would cost you about <span data-amt="760|19">₹760</span>.</li><li>Do this one first: it’s the quickest win this month.</li></ul></div>
         </div>
         <div class="scene" data-k="sort">
           <div class="raw">UPI/412345/SWIGGY/swiggy@ybl<br>POS 4xxx DECATHLON SPORTS<br>NEFT-BESCOM ELECTRICITY</div>
@@ -455,7 +453,7 @@ footer nav a:hover{color:#fff}
         </div>
       </div>
     </div>
-    <div class="qa rv"><span class="qi">⚡</span><div><h3>Quick answers: no AI at all</h3><p>“Where can I spend less?” “When will I be debt-free?” “What will my RD, FD or SIP give?” Worked out on your phone from your own numbers, instantly, even offline.</p></div><span class="free">FREE · NOTHING SENT</span></div>
+    <div class="qa rv"><span class="qi">⚡</span><div><h3>15 instant answers: no AI at all</h3><p>“Can I afford it?” “How much can I save this month?” “Should I prepay or save?” “Can I take a new EMI?” “When will I reach my goals?” Worked out on your phone from your own numbers, instantly, even offline.</p></div><span class="free">FREE · NOTHING SENT</span></div>
     <div class="aitrust rv"><span>🔒 Off until you say yes</span><span>🙈 Never your bank password or account numbers</span><span>🗂️ Only shop names are remembered, nothing about you</span><span>🧑 Names that look like a person’s stay on your phone</span></div>
   </div>
 </section>
@@ -509,13 +507,13 @@ footer nav a:hover{color:#fff}
         <p class="pp"><b id="pro-price" style="display:block;font-size:30px;color:#fff;letter-spacing:-.02em;margin-bottom:2px">₹199</b><span id="pro-where">in India, about $3.99 · €3.99 · £3.99 elsewhere.</span> One payment, no monthly fee.</p>
         <ul>
           <li>Get debt-free faster: the payoff planner and subscriptions finder</li>
-          <li>Let AI do the work: AI sorting on every import, unlimited imports, the AI coach</li>
+          <li>Let AI do the work: AI sorting on every import, unlimited imports, Coach’s words (your plan rewritten by AI)</li>
           <li>The big picture: analytics for a year and your score month by month</li>
           <li>All 20 home-screen widgets and daily automatic backup</li>
           <li>Unlimited goals, repeat entries and lend &amp; borrow</li>
           <li>Receipt photos, CSV export and extra colours</li>
         </ul>
-        <p class="note">Free users get their first statement import sorted by AI and one AI coach question a month, so you can see Pro working on your own money first. Google Play shows the exact price in your currency before you pay.</p>
+        <p class="note">Free users get their first statement import sorted by AI, and this month’s plan and the 15 instant answers are free for everyone. Google Play shows the exact price in your currency before you pay.</p>
       </div>
     </div>
   </div>
@@ -530,9 +528,9 @@ footer nav a:hover{color:#fff}
         <h3>Your data</h3>
         <details open><summary>Is my money data safe?</summary><p>It stays in WealthOn’s private storage on your phone, which other apps can’t read, and Android encrypts the phone’s storage. It never goes to our servers. Add a fingerprint lock so nobody else can open the app, and a backup password so your backups are sealed with AES-256.</p></details>
         <details><summary>What if I lose or change my phone?</summary><p>Send a copy to Google Drive in one tap whenever you like, and restore it on your new phone. Turn on automatic backup and a copy is saved by itself every week to a folder you choose (every day with Pro). Set a backup password and only you can open those files.</p></details>
-        <details><summary>Does the AI see my transactions?</summary><p>No. Smart categories are off until you say yes. Then they get only shop names you haven’t filed before; names that look like a person’s stay on your phone, and so do amounts, dates and account numbers. The coach gets monthly totals by your category names, only when you ask it. “Read with AI” (for statements WealthOn can’t read by itself) sends the statement’s lines only when you tap it, with card, account and IBAN numbers hidden first. Nothing about you is stored: the server only remembers which category common shop names (like Starbucks or Swiggy) belong to, so it can answer without asking the AI again. Settings → Your data, shown lists every request, word for word.</p></details>
+        <details><summary>Does the AI see my transactions?</summary><p>No. Smart categories are off until you say yes. Then they get only shop names you haven’t filed before; names that look like a person’s stay on your phone, and so do amounts, dates and account numbers. Your monthly plan is worked out on the phone; only if you tap Coach’s words (Pro) is the plan’s own text sent to be reworded. “Read with AI” (for statements WealthOn can’t read by itself) sends the statement’s lines only when you tap it, with card, account and IBAN numbers hidden first. Nothing about you is stored: the server only remembers which category common shop names (like Starbucks or Swiggy) belong to, so it can answer without asking the AI again. Settings → Your data, shown lists every request, word for word.</p></details>
         <details><summary>Can I delete everything?</summary><p>Yes. Settings has “Erase all data”, and uninstalling the app removes it too. We keep no copy to ask us to delete. Backups you saved yourself stay where you put them, and if your phone’s own Google backup is on, Android may include WealthOn in it; you control that in Android settings.</p></details>
-        <details><summary>Does it work without internet?</summary><p>Yes. Everything works offline, including Quick answers. Only the AI helpers (the coach, smart categories and reading a statement with AI) need a connection.</p></details>
+        <details><summary>Does it work without internet?</summary><p>Yes. Everything works offline, including this month’s plan and the 15 instant answers. Only the AI helpers (smart categories, reading a statement with AI and Coach’s words) need a connection.</p></details>
       </div>
       <div class="faq rv d2">
         <h3>Using the app</h3>
@@ -540,7 +538,7 @@ footer nav a:hover{color:#fff}
         <details><summary>Does it work in my country?</summary><p>Yes. It supports 20 currencies, and words follow where you live: “EMI” in India, “loan payment” elsewhere. Your month can start on the 1st or on your payday.</p></details>
         <details><summary>Can I have accounts in two currencies?</summary><p>Yes, two at a time: your main currency and one more, for example rupees and euros. Mark an account, an entry, a repeat like your salary, or a whole statement as euros, and it shows in euros while your totals stay in rupees. The rate updates by itself every day (from the European Central Bank), or you can type your own.</p></details>
         <details><summary>Do I have to type every expense?</summary><p>No. Import your statement once a month, and set rent, salary and other fixed amounts to repeat by themselves. Typing a single expense takes two taps.</p></details>
-        <details><summary>Can I try Pro before paying?</summary><p>Yes. Your first statement import is sorted by AI for free, and you get one AI coach question every month. Nothing expires and there’s no subscription: buy Pro once when you want it every time.</p></details>
+        <details><summary>Can I try Pro before paying?</summary><p>Yes. Your first statement import is sorted by AI for free, and the monthly plan and instant answers are free for everyone. Nothing expires and there’s no subscription: buy Pro once when you want it every time.</p></details>
         <details><summary>Is there an iPhone app?</summary><p>Not yet. WealthOn is Android first, and an iPhone version is planned from the same app. Leave your email on the feedback page to hear when it’s ready.</p></details>
         <details><summary>Who makes WealthOn?</summary><p>Suriya Kumar, an independent developer. There’s no company or investors behind it: your one Pro payment keeps it going.</p></details>
       </div>
